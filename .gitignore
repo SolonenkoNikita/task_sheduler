@@ -1,0 +1,112 @@
+# CMake
+CMakeLists.txt.user
+CMakeCache.txt
+CMakeFiles
+CMakeScripts
+Testing
+Makefile
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+CTestTestfile.cmake
+_deps
+
+# Build directories
+/build/
+/build-*/
+**/build/
+
+# Documentation
+/docs/html/
+/docs/latex/
+/docs/xml/
+/doxyfile
+/docs/_build/
+/docs/*.html
+/docs/*.pdf
+Doxyfile
+# IDE-specific files
+*.sln
+*.vcxproj
+*.vcxproj.filters
+*.user
+*.log
+*.tlog
+*.ipch
+*.aps
+*.ncb
+*.opensdf
+*.sdf
+.vs/
+.idea/
+*.iml
+*.pbxproj
+*.xcworkspace
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+*.xcuserstate
+.project
+.cproject
+.settings/
+nbproject/
+
+# Temporary files
+*.tmp
+*.log
+*.bak
+*.swp
+*.swo
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Package managers
+conaninfo.txt
+conanbuildinfo.*
+conan.lock
+vcpkg/
+vcpkg.exe
+vcpkg.json
+vcpkg.lock
+installed/
+packages/
+
+# Testing output
+test_results/
+coverage/
+*.gcda
+*.gcno
+*.gcov
+
+# Binaries and object files
+*.exe
+*.dll
+*.so
+*.a
+*.lib
+*.o
+*.obj
+*.out
+*.pdb
+*.ilk
+*.exp
+
+# Logs and cache
+logs/
+*.log
+.cache/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# CI/CD artifacts
+artifacts/
+dist/
+wheelhouse/
+*.whl
+*.egg-info/
+.vscode
