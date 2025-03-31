@@ -110,3 +110,5 @@ wheelhouse/
 *.whl
 *.egg-info/
 .vscode
+
+Logs

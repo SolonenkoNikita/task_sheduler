@@ -6,4 +6,6 @@ set(CMAKE_CXX_STANDARD 20)
 
 add_library (Task STATIC source/Task.cpp)
 
+target_link_libraries(Task Logger)
+
 target_include_directories(Task PUBLIC include)

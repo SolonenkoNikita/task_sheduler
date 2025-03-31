@@ -11,6 +11,11 @@
 #include <unordered_map>
 #include <cmath>
 #include <algorithm>
+#include <memory>
+
+#include <Logger/Logger.hpp>
+
+#define STATE_DIR "state_log"
 
 class GeneralTask
 {
@@ -93,6 +98,9 @@ public:
     bool execute(std::chrono::milliseconds) override;
 
     [[nodiscard]] pid_t launch_process(const std::string&);
+private:
+
+    std::string task_state_to_string(TaskState);
 
 protected:
     inline void validate_priority() const 
@@ -135,4 +143,6 @@ protected:
     };
 
     SchedulingParams scheduling_params_;
+
+    std::shared_ptr<Logger> logger_;
 };

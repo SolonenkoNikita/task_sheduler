@@ -2,7 +2,9 @@
 
 UnixTask::UnixTask(int id, std::string desc, int static_prio) : id_(id), description_(std::move(desc)),
                             arrival_time_(std::chrono::steady_clock::now()),
-                            static_priority_(static_prio), dynamic_priority_(static_prio) {
+                            static_priority_(static_prio), dynamic_priority_(static_prio) 
+{
+    logger_ = std::make_shared<FileLogger>(LOGS_DIR, STATE_DIR);
     validate_priority();
 }
 
@@ -20,7 +22,13 @@ void UnixTask::set_attribute(const std::string &name, const std::any &value)
 }
 
 void UnixTask::set_state(TaskState state) 
-{ 
+{
+    if (logger_) 
+    {
+        logger_->log("Task " + std::to_string(id_) + " changed state from " +
+                    task_state_to_string(state_) + " to " +
+                    task_state_to_string(state));
+    }
     if(state == TaskState::COMPLETED)
         completed_ = true;
     state_ = state; 
@@ -58,6 +66,23 @@ void UnixTask::set_static_priority(int nice_value)
 bool UnixTask::execute(std::chrono::milliseconds) 
 {
     throw std::runtime_error("Execute method not implemented");
+}
+
+std::string UnixTask::task_state_to_string(TaskState state) 
+{
+    switch (state) 
+    {
+        case TaskState::READY:
+            return "READY";
+        case TaskState::RUNNING:
+            return "RUNNING";
+        case TaskState::WAITING:
+            return "WAITING";
+        case TaskState::COMPLETED:
+            return "COMPLETED";
+        default:
+            return "UNKNOWN";
+    }
 }
 
 void UnixTask::adjust_dynamic_priority()

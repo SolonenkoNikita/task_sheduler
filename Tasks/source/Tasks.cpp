@@ -20,8 +20,7 @@ bool CpuIntensiveTask::execute(std::chrono::milliseconds quantum)
         if (current_time - start >= quantum) 
         {
             auto actual_work = current_time - start;
-            remaining_work_ -=
-                std::chrono::duration_cast<std::chrono::milliseconds>(actual_work);
+            remaining_work_ -= std::chrono::duration_cast<std::chrono::milliseconds>(actual_work);
             cpu_usage_ = std::min(1.0f, static_cast<float>(actual_work.count()) / quantum.count());
             set_state(TaskState::READY);
             return false;               
