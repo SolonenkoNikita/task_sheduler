@@ -44,8 +44,9 @@ Logs/
 3. Generating Documentation (Optional)
    ```bash
    sudo apt install doxygen
-   ```
+   ```bash
    doxygen Doxyfile
+   ```
    
 ## Documentation
 
