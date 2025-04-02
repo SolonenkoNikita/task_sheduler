@@ -1,0 +1,52 @@
+\hypertarget{classTaskSerializer}{}\doxysection{Task\+Serializer Class Reference}
+\label{classTaskSerializer}\index{TaskSerializer@{TaskSerializer}}
+
+
+{\ttfamily \#include $<$Task\+Serialize.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classTaskSerializer_a059592502fc6c16a79f5685b98c0915b}{$\sim$\+Task\+Serializer}} ()=default
+\item 
+virtual \mbox{\hyperlink{structSharedTask}{Shared\+Task}} \mbox{\hyperlink{classTaskSerializer_a57a255c6bff4f1bc58bcb2e428faa82e}{serialize}} (const \mbox{\hyperlink{classUnixTask}{Unix\+Task}} \&) const =0
+\item 
+virtual \mbox{\hyperlink{structSharedTask}{Shared\+Task}} \mbox{\hyperlink{classTaskSerializer_a2d84edec9b619882e579385449e7d2db}{serialize}} (const \mbox{\hyperlink{classCpuIntensiveTask}{Cpu\+Intensive\+Task}} \&) const =0
+\item 
+virtual \mbox{\hyperlink{structSharedTask}{Shared\+Task}} \mbox{\hyperlink{classTaskSerializer_a90ebbe9ab885032431ab76da8c5bf268}{serialize}} (const \mbox{\hyperlink{classIoBoundTask}{Io\+Bound\+Task}} \&) const =0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classTaskSerializer_a059592502fc6c16a79f5685b98c0915b}\label{classTaskSerializer_a059592502fc6c16a79f5685b98c0915b}} 
+\index{TaskSerializer@{TaskSerializer}!````~TaskSerializer@{$\sim$TaskSerializer}}
+\index{````~TaskSerializer@{$\sim$TaskSerializer}!TaskSerializer@{TaskSerializer}}
+\doxysubsubsection{\texorpdfstring{$\sim$TaskSerializer()}{~TaskSerializer()}}
+{\footnotesize\ttfamily virtual Task\+Serializer\+::$\sim$\+Task\+Serializer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classTaskSerializer_a2d84edec9b619882e579385449e7d2db}\label{classTaskSerializer_a2d84edec9b619882e579385449e7d2db}} 
+\index{TaskSerializer@{TaskSerializer}!serialize@{serialize}}
+\index{serialize@{serialize}!TaskSerializer@{TaskSerializer}}
+\doxysubsubsection{\texorpdfstring{serialize()}{serialize()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{structSharedTask}{Shared\+Task}} Task\+Serializer\+::serialize (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classCpuIntensiveTask}{Cpu\+Intensive\+Task}} \&}]{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\mbox{\Hypertarget{classTaskSerializer_a90ebbe9ab885032431ab76da8c5bf268}\label{classTaskSerializer_a90ebbe9ab885032431ab76da8c5bf268}} 
+\index{TaskSerializer@{TaskSerializer}!serialize@{serialize}}
+\index{serialize@{serialize}!TaskSerializer@{TaskSerializer}}
+\doxysubsubsection{\texorpdfstring{serialize()}{serialize()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{structSharedTask}{Shared\+Task}} Task\+Serializer\+::serialize (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classIoBoundTask}{Io\+Bound\+Task}} \&}]{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\mbox{\Hypertarget{classTaskSerializer_a57a255c6bff4f1bc58bcb2e428faa82e}\label{classTaskSerializer_a57a255c6bff4f1bc58bcb2e428faa82e}} 
+\index{TaskSerializer@{TaskSerializer}!serialize@{serialize}}
+\index{serialize@{serialize}!TaskSerializer@{TaskSerializer}}
+\doxysubsubsection{\texorpdfstring{serialize()}{serialize()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{structSharedTask}{Shared\+Task}} Task\+Serializer\+::serialize (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classUnixTask}{Unix\+Task}} \&}]{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Task\+Serialize/include/\+Task\+Serialize/\mbox{\hyperlink{TaskSerialize_8hpp}{Task\+Serialize.\+hpp}}\end{DoxyCompactItemize}

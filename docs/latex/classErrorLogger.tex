@@ -1,0 +1,134 @@
+\hypertarget{classErrorLogger}{}\doxysection{Error\+Logger Class Reference}
+\label{classErrorLogger}\index{ErrorLogger@{ErrorLogger}}
+
+
+A logger specialized for error messages.  
+
+
+
+
+{\ttfamily \#include $<$Logger.\+hpp$>$}
+
+
+
+Inheritance diagram for Error\+Logger\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=153pt]{classErrorLogger__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Error\+Logger\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=153pt]{classErrorLogger__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classErrorLogger_aba95b7ddab7b5a8c29ee261ea383b9c7}{Error\+Logger}} (const std\+::string \&, const std\+::string \&)
+\begin{DoxyCompactList}\small\item\em Constructs an {\ttfamily \mbox{\hyperlink{classErrorLogger}{Error\+Logger}}} instance. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classErrorLogger_adee452e1de0ca9f18b51524e9f3c469f}{log\+\_\+with\+\_\+timestamp}} (const std\+::string \&) override
+\begin{DoxyCompactList}\small\item\em Logs an error message with a timestamp to the file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::ofstream \mbox{\hyperlink{classErrorLogger_a69c0e2b0ea3c186f64685a7907175e29}{create\+\_\+error\+\_\+log\+\_\+file}} (const std\+::string \&error\+\_\+log\+\_\+dir, const std\+::string \&error\+\_\+log\+\_\+file\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Creates an error log file in the specified directory. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ofstream \mbox{\hyperlink{classErrorLogger_a99f72c44d62229913396abe4f09e384a}{error\+\_\+log\+\_\+file\+\_\+}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+A logger specialized for error messages. 
+
+Extends the {\ttfamily \mbox{\hyperlink{classLogger}{Logger}}} class to log error messages with an {\ttfamily \mbox{[}ERROR\mbox{]}} prefix to a specified file. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classErrorLogger_aba95b7ddab7b5a8c29ee261ea383b9c7}\label{classErrorLogger_aba95b7ddab7b5a8c29ee261ea383b9c7}} 
+\index{ErrorLogger@{ErrorLogger}!ErrorLogger@{ErrorLogger}}
+\index{ErrorLogger@{ErrorLogger}!ErrorLogger@{ErrorLogger}}
+\doxysubsubsection{\texorpdfstring{ErrorLogger()}{ErrorLogger()}}
+{\footnotesize\ttfamily Error\+Logger\+::\+Error\+Logger (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{,  }\item[{const std\+::string \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructs an {\ttfamily \mbox{\hyperlink{classErrorLogger}{Error\+Logger}}} instance. 
+
+Creates or opens an error log file in the specified directory.
+
+
+\begin{DoxyParams}{Parameters}
+{\em error\+\_\+log\+\_\+dir} & The directory where the error log file will be stored. \\
+\hline
+{\em error\+\_\+log\+\_\+file\+\_\+name} & The name of the error log file. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classErrorLogger_a69c0e2b0ea3c186f64685a7907175e29}\label{classErrorLogger_a69c0e2b0ea3c186f64685a7907175e29}} 
+\index{ErrorLogger@{ErrorLogger}!create\_error\_log\_file@{create\_error\_log\_file}}
+\index{create\_error\_log\_file@{create\_error\_log\_file}!ErrorLogger@{ErrorLogger}}
+\doxysubsubsection{\texorpdfstring{create\_error\_log\_file()}{create\_error\_log\_file()}}
+{\footnotesize\ttfamily static std\+::ofstream Error\+Logger\+::create\+\_\+error\+\_\+log\+\_\+file (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{error\+\_\+log\+\_\+dir,  }\item[{const std\+::string \&}]{error\+\_\+log\+\_\+file\+\_\+name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Creates an error log file in the specified directory. 
+
+Ensures the directory exists and opens the file in append mode.
+
+
+\begin{DoxyParams}{Parameters}
+{\em error\+\_\+log\+\_\+dir} & The directory where the error log file will be stored. \\
+\hline
+{\em error\+\_\+log\+\_\+file\+\_\+name} & The name of the error log file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::ofstream The output file stream for the error log file. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classErrorLogger_adee452e1de0ca9f18b51524e9f3c469f}\label{classErrorLogger_adee452e1de0ca9f18b51524e9f3c469f}} 
+\index{ErrorLogger@{ErrorLogger}!log\_with\_timestamp@{log\_with\_timestamp}}
+\index{log\_with\_timestamp@{log\_with\_timestamp}!ErrorLogger@{ErrorLogger}}
+\doxysubsubsection{\texorpdfstring{log\_with\_timestamp()}{log\_with\_timestamp()}}
+{\footnotesize\ttfamily void Error\+Logger\+::log\+\_\+with\+\_\+timestamp (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Logs an error message with a timestamp to the file. 
+
+Writes the formatted message with an {\ttfamily \mbox{[}ERROR\mbox{]}} prefix to the error log file if it is open.
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & The message to log, already formatted with a timestamp. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classLogger_a26cf39c1893ec6259687e97e9b6b6116}{Logger}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classErrorLogger_a99f72c44d62229913396abe4f09e384a}\label{classErrorLogger_a99f72c44d62229913396abe4f09e384a}} 
+\index{ErrorLogger@{ErrorLogger}!error\_log\_file\_@{error\_log\_file\_}}
+\index{error\_log\_file\_@{error\_log\_file\_}!ErrorLogger@{ErrorLogger}}
+\doxysubsubsection{\texorpdfstring{error\_log\_file\_}{error\_log\_file\_}}
+{\footnotesize\ttfamily std\+::ofstream Error\+Logger\+::error\+\_\+log\+\_\+file\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Logger/include/\+Logger/\mbox{\hyperlink{Logger_8hpp}{Logger.\+hpp}}\end{DoxyCompactItemize}

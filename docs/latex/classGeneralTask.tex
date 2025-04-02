@@ -1,0 +1,254 @@
+\hypertarget{classGeneralTask}{}\doxysection{General\+Task Class Reference}
+\label{classGeneralTask}\index{GeneralTask@{GeneralTask}}
+
+
+Abstract base class representing a generic task.  
+
+
+
+
+{\ttfamily \#include $<$Task.\+hpp$>$}
+
+
+
+Inheritance diagram for General\+Task\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=278pt]{classGeneralTask__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \mbox{\hyperlink{classGeneralTask_a4aa9da8e8f3dbaddc21097b8a7e8f484}{execute}} (std\+::chrono\+::milliseconds)=0
+\begin{DoxyCompactList}\small\item\em Executes the task for a given duration. \end{DoxyCompactList}\item 
+virtual int \mbox{\hyperlink{classGeneralTask_a686b2b5a7a84b9e909df406e881f9a45}{get\+\_\+priority}} () const noexcept=0
+\begin{DoxyCompactList}\small\item\em Retrieves the task\textquotesingle{}s priority. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classGeneralTask_ab367f2a89150d9307fe8e30c875b3e15}{set\+\_\+static\+\_\+priority}} (int)=0
+\begin{DoxyCompactList}\small\item\em Sets the static priority of the task. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classGeneralTask_aba020ccf0bf6d72a47a496ff53c3c1ba}{adjust\+\_\+dynamic\+\_\+priority}} ()=0
+\begin{DoxyCompactList}\small\item\em Adjusts the dynamic priority of the task. \end{DoxyCompactList}\item 
+virtual const std\+::string \& \mbox{\hyperlink{classGeneralTask_a53988f34d3df2677b9677cce951546bb}{get\+\_\+description}} () const noexcept=0
+\begin{DoxyCompactList}\small\item\em Retrieves the task\textquotesingle{}s description (const version). \end{DoxyCompactList}\item 
+virtual std\+::string \& \mbox{\hyperlink{classGeneralTask_a66cfb3c834a44c43c2ae56f7ee78f6c5}{get\+\_\+description}} () noexcept=0
+\begin{DoxyCompactList}\small\item\em Retrieves the task\textquotesingle{}s description (non-\/const version). \end{DoxyCompactList}\item 
+virtual std\+::chrono\+::steady\+\_\+clock\+::time\+\_\+point \mbox{\hyperlink{classGeneralTask_a1cdd4884463efc8f8f2c7de6355152c6}{get\+\_\+arrival\+\_\+time}} () const noexcept=0
+\begin{DoxyCompactList}\small\item\em Retrieves the task\textquotesingle{}s arrival time. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classGeneralTask_aa8438817795bf9a89c92d48c3748b8d8}{is\+\_\+completed}} () const noexcept=0
+\begin{DoxyCompactList}\small\item\em Checks if the task is completed. \end{DoxyCompactList}\item 
+virtual std\+::any \mbox{\hyperlink{classGeneralTask_ad833672629757b578a6ddc26ed7eb8de}{get\+\_\+attribute}} (const std\+::string \&) const noexcept=0
+\begin{DoxyCompactList}\small\item\em Retrieves an attribute by name. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classGeneralTask_a30988c36c075d2c96f7778080189da22}{set\+\_\+attribute}} (const std\+::string \&, const std\+::any \&)=0
+\begin{DoxyCompactList}\small\item\em Sets an attribute by name. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classGeneralTask_a85c3b8ca6320914177cbfa74694301f6}{$\sim$\+General\+Task}} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor for proper cleanup of derived classes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Abstract base class representing a generic task. 
+
+Defines the interface for tasks, including execution, priority management, state tracking, and attribute handling. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classGeneralTask_a85c3b8ca6320914177cbfa74694301f6}\label{classGeneralTask_a85c3b8ca6320914177cbfa74694301f6}} 
+\index{GeneralTask@{GeneralTask}!````~GeneralTask@{$\sim$GeneralTask}}
+\index{````~GeneralTask@{$\sim$GeneralTask}!GeneralTask@{GeneralTask}}
+\doxysubsubsection{\texorpdfstring{$\sim$GeneralTask()}{~GeneralTask()}}
+{\footnotesize\ttfamily virtual General\+Task\+::$\sim$\+General\+Task (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+Virtual destructor for proper cleanup of derived classes. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classGeneralTask_aba020ccf0bf6d72a47a496ff53c3c1ba}\label{classGeneralTask_aba020ccf0bf6d72a47a496ff53c3c1ba}} 
+\index{GeneralTask@{GeneralTask}!adjust\_dynamic\_priority@{adjust\_dynamic\_priority}}
+\index{adjust\_dynamic\_priority@{adjust\_dynamic\_priority}!GeneralTask@{GeneralTask}}
+\doxysubsubsection{\texorpdfstring{adjust\_dynamic\_priority()}{adjust\_dynamic\_priority()}}
+{\footnotesize\ttfamily virtual void General\+Task\+::adjust\+\_\+dynamic\+\_\+priority (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Adjusts the dynamic priority of the task. 
+
+
+
+Implemented in \mbox{\hyperlink{classUnixTask_ac60192a0c6928248a5cfec2b5f369786}{Unix\+Task}}.
+
+\mbox{\Hypertarget{classGeneralTask_a4aa9da8e8f3dbaddc21097b8a7e8f484}\label{classGeneralTask_a4aa9da8e8f3dbaddc21097b8a7e8f484}} 
+\index{GeneralTask@{GeneralTask}!execute@{execute}}
+\index{execute@{execute}!GeneralTask@{GeneralTask}}
+\doxysubsubsection{\texorpdfstring{execute()}{execute()}}
+{\footnotesize\ttfamily virtual bool General\+Task\+::execute (\begin{DoxyParamCaption}\item[{std\+::chrono\+::milliseconds}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Executes the task for a given duration. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em duration} & The duration for which the task should execute. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool True if the task was executed successfully, false otherwise. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classCpuIntensiveTask_a5cec14a81d6559d0bc26a4c1d31325cb}{Cpu\+Intensive\+Task}}, \mbox{\hyperlink{classUnixTask_ab5dfc87c4496f4349495cadc279977fc}{Unix\+Task}}, and \mbox{\hyperlink{classIoBoundTask_a36b32eb0765f6d5974f641161083d9ed}{Io\+Bound\+Task}}.
+
+\mbox{\Hypertarget{classGeneralTask_a1cdd4884463efc8f8f2c7de6355152c6}\label{classGeneralTask_a1cdd4884463efc8f8f2c7de6355152c6}} 
+\index{GeneralTask@{GeneralTask}!get\_arrival\_time@{get\_arrival\_time}}
+\index{get\_arrival\_time@{get\_arrival\_time}!GeneralTask@{GeneralTask}}
+\doxysubsubsection{\texorpdfstring{get\_arrival\_time()}{get\_arrival\_time()}}
+{\footnotesize\ttfamily virtual std\+::chrono\+::steady\+\_\+clock\+::time\+\_\+point General\+Task\+::get\+\_\+arrival\+\_\+time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Retrieves the task\textquotesingle{}s arrival time. 
+
+\begin{DoxyReturn}{Returns}
+std\+::chrono\+::steady\+\_\+clock\+::time\+\_\+point The time when the task arrived. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classUnixTask_a137f0b03aa557115fd070e2bfa5f1fc9}{Unix\+Task}}.
+
+\mbox{\Hypertarget{classGeneralTask_ad833672629757b578a6ddc26ed7eb8de}\label{classGeneralTask_ad833672629757b578a6ddc26ed7eb8de}} 
+\index{GeneralTask@{GeneralTask}!get\_attribute@{get\_attribute}}
+\index{get\_attribute@{get\_attribute}!GeneralTask@{GeneralTask}}
+\doxysubsubsection{\texorpdfstring{get\_attribute()}{get\_attribute()}}
+{\footnotesize\ttfamily virtual std\+::any General\+Task\+::get\+\_\+attribute (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Retrieves an attribute by name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the attribute.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::any The attribute value, or an empty {\ttfamily std\+::any} if not found. std\+::any is a class for storing any value 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classUnixTask_a866b97d11c723e156faa4400bc52b5d5}{Unix\+Task}}.
+
+\mbox{\Hypertarget{classGeneralTask_a53988f34d3df2677b9677cce951546bb}\label{classGeneralTask_a53988f34d3df2677b9677cce951546bb}} 
+\index{GeneralTask@{GeneralTask}!get\_description@{get\_description}}
+\index{get\_description@{get\_description}!GeneralTask@{GeneralTask}}
+\doxysubsubsection{\texorpdfstring{get\_description()}{get\_description()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual const std\+::string\& General\+Task\+::get\+\_\+description (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Retrieves the task\textquotesingle{}s description (const version). 
+
+\begin{DoxyReturn}{Returns}
+const std\+::string\& The task\textquotesingle{}s description. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classUnixTask_af3291964967f0251ad3547d57586c488}{Unix\+Task}}.
+
+\mbox{\Hypertarget{classGeneralTask_a66cfb3c834a44c43c2ae56f7ee78f6c5}\label{classGeneralTask_a66cfb3c834a44c43c2ae56f7ee78f6c5}} 
+\index{GeneralTask@{GeneralTask}!get\_description@{get\_description}}
+\index{get\_description@{get\_description}!GeneralTask@{GeneralTask}}
+\doxysubsubsection{\texorpdfstring{get\_description()}{get\_description()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual std\+::string\& General\+Task\+::get\+\_\+description (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Retrieves the task\textquotesingle{}s description (non-\/const version). 
+
+\begin{DoxyReturn}{Returns}
+std\+::string\& The task\textquotesingle{}s description. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classUnixTask_a99bd764eaba790f2fb72425eca7bbdf7}{Unix\+Task}}.
+
+\mbox{\Hypertarget{classGeneralTask_a686b2b5a7a84b9e909df406e881f9a45}\label{classGeneralTask_a686b2b5a7a84b9e909df406e881f9a45}} 
+\index{GeneralTask@{GeneralTask}!get\_priority@{get\_priority}}
+\index{get\_priority@{get\_priority}!GeneralTask@{GeneralTask}}
+\doxysubsubsection{\texorpdfstring{get\_priority()}{get\_priority()}}
+{\footnotesize\ttfamily virtual int General\+Task\+::get\+\_\+priority (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Retrieves the task\textquotesingle{}s priority. 
+
+\begin{DoxyReturn}{Returns}
+int The task\textquotesingle{}s priority. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classUnixTask_abdea75c0010dfed6d8a792f7718eaa25}{Unix\+Task}}.
+
+\mbox{\Hypertarget{classGeneralTask_aa8438817795bf9a89c92d48c3748b8d8}\label{classGeneralTask_aa8438817795bf9a89c92d48c3748b8d8}} 
+\index{GeneralTask@{GeneralTask}!is\_completed@{is\_completed}}
+\index{is\_completed@{is\_completed}!GeneralTask@{GeneralTask}}
+\doxysubsubsection{\texorpdfstring{is\_completed()}{is\_completed()}}
+{\footnotesize\ttfamily virtual bool General\+Task\+::is\+\_\+completed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Checks if the task is completed. 
+
+\begin{DoxyReturn}{Returns}
+bool True if the task is completed, false otherwise. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classUnixTask_a26c9f3099410278f393baeab4a522e9f}{Unix\+Task}}.
+
+\mbox{\Hypertarget{classGeneralTask_a30988c36c075d2c96f7778080189da22}\label{classGeneralTask_a30988c36c075d2c96f7778080189da22}} 
+\index{GeneralTask@{GeneralTask}!set\_attribute@{set\_attribute}}
+\index{set\_attribute@{set\_attribute}!GeneralTask@{GeneralTask}}
+\doxysubsubsection{\texorpdfstring{set\_attribute()}{set\_attribute()}}
+{\footnotesize\ttfamily virtual void General\+Task\+::set\+\_\+attribute (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{,  }\item[{const std\+::any \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Sets an attribute by name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the attribute. \\
+\hline
+{\em value} & The value to set for the attribute. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classUnixTask_ab99e4a5a402350134478c61ab9b6a8ee}{Unix\+Task}}.
+
+\mbox{\Hypertarget{classGeneralTask_ab367f2a89150d9307fe8e30c875b3e15}\label{classGeneralTask_ab367f2a89150d9307fe8e30c875b3e15}} 
+\index{GeneralTask@{GeneralTask}!set\_static\_priority@{set\_static\_priority}}
+\index{set\_static\_priority@{set\_static\_priority}!GeneralTask@{GeneralTask}}
+\doxysubsubsection{\texorpdfstring{set\_static\_priority()}{set\_static\_priority()}}
+{\footnotesize\ttfamily virtual void General\+Task\+::set\+\_\+static\+\_\+priority (\begin{DoxyParamCaption}\item[{int}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Sets the static priority of the task. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em priority} & The new static priority value. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classUnixTask_a4282c3b5bf079363259a0dc7ed9f7b9a}{Unix\+Task}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Task/include/\+Task/\mbox{\hyperlink{Task_8hpp}{Task.\+hpp}}\end{DoxyCompactItemize}

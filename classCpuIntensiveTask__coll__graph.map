@@ -1,0 +1,6 @@
+<map id="CpuIntensiveTask" name="CpuIntensiveTask">
+<area shape="rect" id="node1" title="Represents a CPU&#45;intensive task." alt="" coords="78,171,214,197"/>
+<area shape="rect" id="node2" href="$classUnixTask.html" title="Represents a task in a Unix&#45;based system." alt="" coords="105,95,187,121"/>
+<area shape="rect" id="node3" href="$classGeneralTask.html" title="Abstract base class representing a generic task." alt="" coords="5,5,108,32"/>
+<area shape="rect" id="node4" href="$structUnixTask_1_1SchedulingParams.html" title="Parameters used for dynamic priority adjustment." alt="" coords="133,5,341,32"/>
+</map>

@@ -1,0 +1,134 @@
+\hypertarget{classFileLogger}{}\doxysection{File\+Logger Class Reference}
+\label{classFileLogger}\index{FileLogger@{FileLogger}}
+
+
+A logger that writes messages to a file.  
+
+
+
+
+{\ttfamily \#include $<$Logger.\+hpp$>$}
+
+
+
+Inheritance diagram for File\+Logger\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=147pt]{classFileLogger__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for File\+Logger\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=147pt]{classFileLogger__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classFileLogger_aac0b19b1d42711cd9faae6ce5a9ff467}{File\+Logger}} (const std\+::string \&, const std\+::string \&)
+\begin{DoxyCompactList}\small\item\em Constructs a {\ttfamily \mbox{\hyperlink{classFileLogger}{File\+Logger}}} instance. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classFileLogger_ae0388896270dd652711f9701890cc814}{log\+\_\+with\+\_\+timestamp}} (const std\+::string \&) override
+\begin{DoxyCompactList}\small\item\em Logs a message with a timestamp to the file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::ofstream \mbox{\hyperlink{classFileLogger_aa94082fb4e147e5935c9a129b9a27970}{create\+\_\+log\+\_\+file}} (const std\+::string \&log\+\_\+dir, const std\+::string \&log\+\_\+file\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Creates a log file in the specified directory. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ofstream \mbox{\hyperlink{classFileLogger_a71055c7719ffabbef2b437b9bbd87152}{log\+\_\+file\+\_\+}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+A logger that writes messages to a file. 
+
+Implements the {\ttfamily \mbox{\hyperlink{classLogger}{Logger}}} interface to log messages to a specified file in append mode. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classFileLogger_aac0b19b1d42711cd9faae6ce5a9ff467}\label{classFileLogger_aac0b19b1d42711cd9faae6ce5a9ff467}} 
+\index{FileLogger@{FileLogger}!FileLogger@{FileLogger}}
+\index{FileLogger@{FileLogger}!FileLogger@{FileLogger}}
+\doxysubsubsection{\texorpdfstring{FileLogger()}{FileLogger()}}
+{\footnotesize\ttfamily File\+Logger\+::\+File\+Logger (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{,  }\item[{const std\+::string \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructs a {\ttfamily \mbox{\hyperlink{classFileLogger}{File\+Logger}}} instance. 
+
+Creates or opens a log file in the specified directory.
+
+
+\begin{DoxyParams}{Parameters}
+{\em log\+\_\+dir} & The directory where the log file will be stored. \\
+\hline
+{\em log\+\_\+file\+\_\+name} & The name of the log file. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classFileLogger_aa94082fb4e147e5935c9a129b9a27970}\label{classFileLogger_aa94082fb4e147e5935c9a129b9a27970}} 
+\index{FileLogger@{FileLogger}!create\_log\_file@{create\_log\_file}}
+\index{create\_log\_file@{create\_log\_file}!FileLogger@{FileLogger}}
+\doxysubsubsection{\texorpdfstring{create\_log\_file()}{create\_log\_file()}}
+{\footnotesize\ttfamily static std\+::ofstream File\+Logger\+::create\+\_\+log\+\_\+file (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{log\+\_\+dir,  }\item[{const std\+::string \&}]{log\+\_\+file\+\_\+name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Creates a log file in the specified directory. 
+
+Ensures the directory exists and opens the file in append mode.
+
+
+\begin{DoxyParams}{Parameters}
+{\em log\+\_\+dir} & The directory where the log file will be stored. \\
+\hline
+{\em log\+\_\+file\+\_\+name} & The name of the log file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::ofstream The output file stream for the log file. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classFileLogger_ae0388896270dd652711f9701890cc814}\label{classFileLogger_ae0388896270dd652711f9701890cc814}} 
+\index{FileLogger@{FileLogger}!log\_with\_timestamp@{log\_with\_timestamp}}
+\index{log\_with\_timestamp@{log\_with\_timestamp}!FileLogger@{FileLogger}}
+\doxysubsubsection{\texorpdfstring{log\_with\_timestamp()}{log\_with\_timestamp()}}
+{\footnotesize\ttfamily void File\+Logger\+::log\+\_\+with\+\_\+timestamp (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Logs a message with a timestamp to the file. 
+
+Writes the formatted message to the log file if it is open.
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & The message to log, already formatted with a timestamp. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classLogger_a26cf39c1893ec6259687e97e9b6b6116}{Logger}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classFileLogger_a71055c7719ffabbef2b437b9bbd87152}\label{classFileLogger_a71055c7719ffabbef2b437b9bbd87152}} 
+\index{FileLogger@{FileLogger}!log\_file\_@{log\_file\_}}
+\index{log\_file\_@{log\_file\_}!FileLogger@{FileLogger}}
+\doxysubsubsection{\texorpdfstring{log\_file\_}{log\_file\_}}
+{\footnotesize\ttfamily std\+::ofstream File\+Logger\+::log\+\_\+file\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Logger/include/\+Logger/\mbox{\hyperlink{Logger_8hpp}{Logger.\+hpp}}\end{DoxyCompactItemize}

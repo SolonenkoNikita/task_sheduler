@@ -1,0 +1,116 @@
+\hypertarget{classLogger}{}\doxysection{Logger Class Reference}
+\label{classLogger}\index{Logger@{Logger}}
+
+
+Abstract base class for logging functionality.  
+
+
+
+
+{\ttfamily \#include $<$Logger.\+hpp$>$}
+
+
+
+Inheritance diagram for Logger\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=238pt]{classLogger__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classLogger_a68cafca721107a954d85043a553dd217}{$\sim$\+Logger}} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor for proper cleanup of derived classes. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLogger_a17f07c509e26d45e7b2d21e9df67f600}{log}} (const std\+::string \&)
+\begin{DoxyCompactList}\small\item\em Logs a message with a timestamp. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{classLogger_a5487e9f97fe01f76c4fccc4b36e42355}{format\+\_\+with\+\_\+timestamp}} (const std\+::string \&)
+\begin{DoxyCompactList}\small\item\em Formats a message with a timestamp. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classLogger_a26cf39c1893ec6259687e97e9b6b6116}{log\+\_\+with\+\_\+timestamp}} (const std\+::string \&)=0
+\begin{DoxyCompactList}\small\item\em Pure virtual method for logging a message with a timestamp. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Abstract base class for logging functionality. 
+
+Provides a common interface for logging messages and utility methods for formatting messages with timestamps. Derived classes must implement the {\ttfamily log\+\_\+with\+\_\+timestamp} method. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classLogger_a68cafca721107a954d85043a553dd217}\label{classLogger_a68cafca721107a954d85043a553dd217}} 
+\index{Logger@{Logger}!````~Logger@{$\sim$Logger}}
+\index{````~Logger@{$\sim$Logger}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{$\sim$Logger()}{~Logger()}}
+{\footnotesize\ttfamily virtual Logger\+::$\sim$\+Logger (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+Virtual destructor for proper cleanup of derived classes. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classLogger_a5487e9f97fe01f76c4fccc4b36e42355}\label{classLogger_a5487e9f97fe01f76c4fccc4b36e42355}} 
+\index{Logger@{Logger}!format\_with\_timestamp@{format\_with\_timestamp}}
+\index{format\_with\_timestamp@{format\_with\_timestamp}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{format\_with\_timestamp()}{format\_with\_timestamp()}}
+{\footnotesize\ttfamily std\+::string Logger\+::format\+\_\+with\+\_\+timestamp (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Formats a message with a timestamp. 
+
+Adds a timestamp in the format {\ttfamily \mbox{[}DD.\+MM.\+YYYY HH\+:\+MM\+:SS\mbox{]}} to the given message.
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & The message to format. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::string The formatted message with timestamp. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classLogger_a17f07c509e26d45e7b2d21e9df67f600}\label{classLogger_a17f07c509e26d45e7b2d21e9df67f600}} 
+\index{Logger@{Logger}!log@{log}}
+\index{log@{log}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{log()}{log()}}
+{\footnotesize\ttfamily void Logger\+::log (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{ }\end{DoxyParamCaption})}
+
+
+
+Logs a message with a timestamp. 
+
+Formats the message with a timestamp and delegates it to the {\ttfamily log\+\_\+with\+\_\+timestamp} method. 
+\begin{DoxyParams}{Parameters}
+{\em message} & The message to be logged. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classLogger_a26cf39c1893ec6259687e97e9b6b6116}\label{classLogger_a26cf39c1893ec6259687e97e9b6b6116}} 
+\index{Logger@{Logger}!log\_with\_timestamp@{log\_with\_timestamp}}
+\index{log\_with\_timestamp@{log\_with\_timestamp}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{log\_with\_timestamp()}{log\_with\_timestamp()}}
+{\footnotesize\ttfamily virtual void Logger\+::log\+\_\+with\+\_\+timestamp (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}
+
+
+
+Pure virtual method for logging a message with a timestamp. 
+
+Must be implemented by derived classes to define how the message is logged (e.\+g., to a file).
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & The message to log, already formatted with a timestamp. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classErrorLogger_adee452e1de0ca9f18b51524e9f3c469f}{Error\+Logger}}, and \mbox{\hyperlink{classFileLogger_ae0388896270dd652711f9701890cc814}{File\+Logger}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Logger/include/\+Logger/\mbox{\hyperlink{Logger_8hpp}{Logger.\+hpp}}\end{DoxyCompactItemize}

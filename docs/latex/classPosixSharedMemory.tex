@@ -1,0 +1,252 @@
+\hypertarget{classPosixSharedMemory}{}\doxysection{Posix\+Shared\+Memory Class Reference}
+\label{classPosixSharedMemory}\index{PosixSharedMemory@{PosixSharedMemory}}
+
+
+{\ttfamily \#include $<$Posix\+Shared\+Memory.\+hpp$>$}
+
+
+
+Inheritance diagram for Posix\+Shared\+Memory\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=197pt]{classPosixSharedMemory__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Posix\+Shared\+Memory\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=314pt]{classPosixSharedMemory__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structPosixSharedMemory_1_1SharedMemoryLayout}{Shared\+Memory\+Layout}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classPosixSharedMemory_a170ddd28d54ba02d2cb043bb2395c13d}{Posix\+Shared\+Memory}} (const std\+::string \&, size\+\_\+t=100)
+\item 
+\mbox{\hyperlink{classPosixSharedMemory_ae3cb233be14b1b3fa933cfb87240ecd3}{$\sim$\+Posix\+Shared\+Memory}} () override
+\item 
+void \mbox{\hyperlink{classPosixSharedMemory_a001a7cd56708aa829b62b2cb79f2a1c1}{create}} () override
+\item 
+void \mbox{\hyperlink{classPosixSharedMemory_a7a388f5494959263d8e23fdd2c5299d8}{attach}} () override
+\item 
+void \mbox{\hyperlink{classPosixSharedMemory_a949aede70f00a2ab5dbad49a13306076}{detach}} () override
+\item 
+void \mbox{\hyperlink{classPosixSharedMemory_a5ab4631fdcb59281cbef677f6bc97b27}{destroy}} () override
+\item 
+void \mbox{\hyperlink{classPosixSharedMemory_a9100d551e310cf905c8409cd2fb55754}{enqueue}} (const \mbox{\hyperlink{structSharedTask}{Shared\+Task}} \&task) override
+\item 
+\mbox{\hyperlink{structSharedTask}{Shared\+Task}} \mbox{\hyperlink{classPosixSharedMemory_ae5ce61e0ea14442951a118f4ab795b49}{dequeue}} () override
+\item 
+size\+\_\+t \mbox{\hyperlink{classPosixSharedMemory_a5e9f6d4f20b80a2fc3d32cf4e64a793d}{size}} () const override
+\item 
+bool \mbox{\hyperlink{classPosixSharedMemory_a8eb6eaa42127ca7b4503f0b464f6ccfa}{empty}} () const override
+\item 
+const std\+::string \& \mbox{\hyperlink{classPosixSharedMemory_afd9fe87308327cd8a494676431d67ea0}{name}} () const noexcept override
+\item 
+size\+\_\+t \mbox{\hyperlink{classPosixSharedMemory_ab74db0013852a914fa25013db749b60e}{capacity}} () const noexcept override
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classPosixSharedMemory_abb2db6527a73226b32405a84c498bd69}{cleanup}} ()
+\item 
+void \mbox{\hyperlink{classPosixSharedMemory_a4e7604850199962311db13d0b5e01ca5}{validate}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{classPosixSharedMemory_a3c22df6a8eefa0ccb825f77a1d6ac850}{name\+\_\+}}
+\item 
+size\+\_\+t \mbox{\hyperlink{classPosixSharedMemory_a948f36432cbf1b53515ebf02ae9f0473}{capacity\+\_\+}}
+\item 
+int \mbox{\hyperlink{classPosixSharedMemory_ae790171b1b75c83e24cf2193bfd18e3b}{fd\+\_\+}}
+\item 
+\mbox{\hyperlink{structPosixSharedMemory_1_1SharedMemoryLayout}{Shared\+Memory\+Layout}} $\ast$ \mbox{\hyperlink{classPosixSharedMemory_a4cc05f5bad21f0222a8a2a7c6a1d9b80}{data\+\_\+}}
+\item 
+std\+::mutex \mbox{\hyperlink{classPosixSharedMemory_aad9511d4590c6b32c942e3892424111f}{mutex\+\_\+}}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classLogger}{Logger}} $>$ \mbox{\hyperlink{classPosixSharedMemory_ac0d24cfc2da217bce6579692a4cfa223}{logger\+\_\+}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classPosixSharedMemory_a170ddd28d54ba02d2cb043bb2395c13d}\label{classPosixSharedMemory_a170ddd28d54ba02d2cb043bb2395c13d}} 
+\index{PosixSharedMemory@{PosixSharedMemory}!PosixSharedMemory@{PosixSharedMemory}}
+\index{PosixSharedMemory@{PosixSharedMemory}!PosixSharedMemory@{PosixSharedMemory}}
+\doxysubsubsection{\texorpdfstring{PosixSharedMemory()}{PosixSharedMemory()}}
+{\footnotesize\ttfamily Posix\+Shared\+Memory\+::\+Posix\+Shared\+Memory (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{,  }\item[{size\+\_\+t}]{ = {\ttfamily 100} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classPosixSharedMemory_ae3cb233be14b1b3fa933cfb87240ecd3}\label{classPosixSharedMemory_ae3cb233be14b1b3fa933cfb87240ecd3}} 
+\index{PosixSharedMemory@{PosixSharedMemory}!````~PosixSharedMemory@{$\sim$PosixSharedMemory}}
+\index{````~PosixSharedMemory@{$\sim$PosixSharedMemory}!PosixSharedMemory@{PosixSharedMemory}}
+\doxysubsubsection{\texorpdfstring{$\sim$PosixSharedMemory()}{~PosixSharedMemory()}}
+{\footnotesize\ttfamily Posix\+Shared\+Memory\+::$\sim$\+Posix\+Shared\+Memory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classPosixSharedMemory_a7a388f5494959263d8e23fdd2c5299d8}\label{classPosixSharedMemory_a7a388f5494959263d8e23fdd2c5299d8}} 
+\index{PosixSharedMemory@{PosixSharedMemory}!attach@{attach}}
+\index{attach@{attach}!PosixSharedMemory@{PosixSharedMemory}}
+\doxysubsubsection{\texorpdfstring{attach()}{attach()}}
+{\footnotesize\ttfamily void Posix\+Shared\+Memory\+::attach (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classSharedMemory_a397004b13b052b63e5d763984e8fa3aa}{Shared\+Memory}}.
+
+\mbox{\Hypertarget{classPosixSharedMemory_ab74db0013852a914fa25013db749b60e}\label{classPosixSharedMemory_ab74db0013852a914fa25013db749b60e}} 
+\index{PosixSharedMemory@{PosixSharedMemory}!capacity@{capacity}}
+\index{capacity@{capacity}!PosixSharedMemory@{PosixSharedMemory}}
+\doxysubsubsection{\texorpdfstring{capacity()}{capacity()}}
+{\footnotesize\ttfamily size\+\_\+t Posix\+Shared\+Memory\+::capacity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Implements \mbox{\hyperlink{classSharedMemory_a6e262d5ebaecbbddd144e8ad9f278fff}{Shared\+Memory}}.
+
+\mbox{\Hypertarget{classPosixSharedMemory_abb2db6527a73226b32405a84c498bd69}\label{classPosixSharedMemory_abb2db6527a73226b32405a84c498bd69}} 
+\index{PosixSharedMemory@{PosixSharedMemory}!cleanup@{cleanup}}
+\index{cleanup@{cleanup}!PosixSharedMemory@{PosixSharedMemory}}
+\doxysubsubsection{\texorpdfstring{cleanup()}{cleanup()}}
+{\footnotesize\ttfamily void Posix\+Shared\+Memory\+::cleanup (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classPosixSharedMemory_a001a7cd56708aa829b62b2cb79f2a1c1}\label{classPosixSharedMemory_a001a7cd56708aa829b62b2cb79f2a1c1}} 
+\index{PosixSharedMemory@{PosixSharedMemory}!create@{create}}
+\index{create@{create}!PosixSharedMemory@{PosixSharedMemory}}
+\doxysubsubsection{\texorpdfstring{create()}{create()}}
+{\footnotesize\ttfamily void Posix\+Shared\+Memory\+::create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classSharedMemory_af316cbb26e94447ac71796b7813b71b5}{Shared\+Memory}}.
+
+\mbox{\Hypertarget{classPosixSharedMemory_ae5ce61e0ea14442951a118f4ab795b49}\label{classPosixSharedMemory_ae5ce61e0ea14442951a118f4ab795b49}} 
+\index{PosixSharedMemory@{PosixSharedMemory}!dequeue@{dequeue}}
+\index{dequeue@{dequeue}!PosixSharedMemory@{PosixSharedMemory}}
+\doxysubsubsection{\texorpdfstring{dequeue()}{dequeue()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structSharedTask}{Shared\+Task}} Posix\+Shared\+Memory\+::dequeue (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classSharedMemory_a989b4ba2e0c2e5e1bf4797212973a672}{Shared\+Memory}}.
+
+\mbox{\Hypertarget{classPosixSharedMemory_a5ab4631fdcb59281cbef677f6bc97b27}\label{classPosixSharedMemory_a5ab4631fdcb59281cbef677f6bc97b27}} 
+\index{PosixSharedMemory@{PosixSharedMemory}!destroy@{destroy}}
+\index{destroy@{destroy}!PosixSharedMemory@{PosixSharedMemory}}
+\doxysubsubsection{\texorpdfstring{destroy()}{destroy()}}
+{\footnotesize\ttfamily void Posix\+Shared\+Memory\+::destroy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classSharedMemory_a9669b8e08e85f5e4e2e6316c7d33eadb}{Shared\+Memory}}.
+
+\mbox{\Hypertarget{classPosixSharedMemory_a949aede70f00a2ab5dbad49a13306076}\label{classPosixSharedMemory_a949aede70f00a2ab5dbad49a13306076}} 
+\index{PosixSharedMemory@{PosixSharedMemory}!detach@{detach}}
+\index{detach@{detach}!PosixSharedMemory@{PosixSharedMemory}}
+\doxysubsubsection{\texorpdfstring{detach()}{detach()}}
+{\footnotesize\ttfamily void Posix\+Shared\+Memory\+::detach (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classSharedMemory_a2946aa9d77d85dda3370c6a4192a9797}{Shared\+Memory}}.
+
+\mbox{\Hypertarget{classPosixSharedMemory_a8eb6eaa42127ca7b4503f0b464f6ccfa}\label{classPosixSharedMemory_a8eb6eaa42127ca7b4503f0b464f6ccfa}} 
+\index{PosixSharedMemory@{PosixSharedMemory}!empty@{empty}}
+\index{empty@{empty}!PosixSharedMemory@{PosixSharedMemory}}
+\doxysubsubsection{\texorpdfstring{empty()}{empty()}}
+{\footnotesize\ttfamily bool Posix\+Shared\+Memory\+::empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classSharedMemory_a0bd506a66c8b3b5c4e213832b1e11c00}{Shared\+Memory}}.
+
+\mbox{\Hypertarget{classPosixSharedMemory_a9100d551e310cf905c8409cd2fb55754}\label{classPosixSharedMemory_a9100d551e310cf905c8409cd2fb55754}} 
+\index{PosixSharedMemory@{PosixSharedMemory}!enqueue@{enqueue}}
+\index{enqueue@{enqueue}!PosixSharedMemory@{PosixSharedMemory}}
+\doxysubsubsection{\texorpdfstring{enqueue()}{enqueue()}}
+{\footnotesize\ttfamily void Posix\+Shared\+Memory\+::enqueue (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structSharedTask}{Shared\+Task}} \&}]{task }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classSharedMemory_a9075b137dac6bce6d532c02486d4064f}{Shared\+Memory}}.
+
+\mbox{\Hypertarget{classPosixSharedMemory_afd9fe87308327cd8a494676431d67ea0}\label{classPosixSharedMemory_afd9fe87308327cd8a494676431d67ea0}} 
+\index{PosixSharedMemory@{PosixSharedMemory}!name@{name}}
+\index{name@{name}!PosixSharedMemory@{PosixSharedMemory}}
+\doxysubsubsection{\texorpdfstring{name()}{name()}}
+{\footnotesize\ttfamily const std\+::string\& Posix\+Shared\+Memory\+::name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Implements \mbox{\hyperlink{classSharedMemory_ab31e7f56c9f42f51458bfbf3bd06bab4}{Shared\+Memory}}.
+
+\mbox{\Hypertarget{classPosixSharedMemory_a5e9f6d4f20b80a2fc3d32cf4e64a793d}\label{classPosixSharedMemory_a5e9f6d4f20b80a2fc3d32cf4e64a793d}} 
+\index{PosixSharedMemory@{PosixSharedMemory}!size@{size}}
+\index{size@{size}!PosixSharedMemory@{PosixSharedMemory}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily size\+\_\+t Posix\+Shared\+Memory\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classSharedMemory_a8765cb78485992b19f2a15877ef174cd}{Shared\+Memory}}.
+
+\mbox{\Hypertarget{classPosixSharedMemory_a4e7604850199962311db13d0b5e01ca5}\label{classPosixSharedMemory_a4e7604850199962311db13d0b5e01ca5}} 
+\index{PosixSharedMemory@{PosixSharedMemory}!validate@{validate}}
+\index{validate@{validate}!PosixSharedMemory@{PosixSharedMemory}}
+\doxysubsubsection{\texorpdfstring{validate()}{validate()}}
+{\footnotesize\ttfamily void Posix\+Shared\+Memory\+::validate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classPosixSharedMemory_a948f36432cbf1b53515ebf02ae9f0473}\label{classPosixSharedMemory_a948f36432cbf1b53515ebf02ae9f0473}} 
+\index{PosixSharedMemory@{PosixSharedMemory}!capacity\_@{capacity\_}}
+\index{capacity\_@{capacity\_}!PosixSharedMemory@{PosixSharedMemory}}
+\doxysubsubsection{\texorpdfstring{capacity\_}{capacity\_}}
+{\footnotesize\ttfamily size\+\_\+t Posix\+Shared\+Memory\+::capacity\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classPosixSharedMemory_a4cc05f5bad21f0222a8a2a7c6a1d9b80}\label{classPosixSharedMemory_a4cc05f5bad21f0222a8a2a7c6a1d9b80}} 
+\index{PosixSharedMemory@{PosixSharedMemory}!data\_@{data\_}}
+\index{data\_@{data\_}!PosixSharedMemory@{PosixSharedMemory}}
+\doxysubsubsection{\texorpdfstring{data\_}{data\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structPosixSharedMemory_1_1SharedMemoryLayout}{Shared\+Memory\+Layout}}$\ast$ Posix\+Shared\+Memory\+::data\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classPosixSharedMemory_ae790171b1b75c83e24cf2193bfd18e3b}\label{classPosixSharedMemory_ae790171b1b75c83e24cf2193bfd18e3b}} 
+\index{PosixSharedMemory@{PosixSharedMemory}!fd\_@{fd\_}}
+\index{fd\_@{fd\_}!PosixSharedMemory@{PosixSharedMemory}}
+\doxysubsubsection{\texorpdfstring{fd\_}{fd\_}}
+{\footnotesize\ttfamily int Posix\+Shared\+Memory\+::fd\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classPosixSharedMemory_ac0d24cfc2da217bce6579692a4cfa223}\label{classPosixSharedMemory_ac0d24cfc2da217bce6579692a4cfa223}} 
+\index{PosixSharedMemory@{PosixSharedMemory}!logger\_@{logger\_}}
+\index{logger\_@{logger\_}!PosixSharedMemory@{PosixSharedMemory}}
+\doxysubsubsection{\texorpdfstring{logger\_}{logger\_}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classLogger}{Logger}}$>$ Posix\+Shared\+Memory\+::logger\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classPosixSharedMemory_aad9511d4590c6b32c942e3892424111f}\label{classPosixSharedMemory_aad9511d4590c6b32c942e3892424111f}} 
+\index{PosixSharedMemory@{PosixSharedMemory}!mutex\_@{mutex\_}}
+\index{mutex\_@{mutex\_}!PosixSharedMemory@{PosixSharedMemory}}
+\doxysubsubsection{\texorpdfstring{mutex\_}{mutex\_}}
+{\footnotesize\ttfamily std\+::mutex Posix\+Shared\+Memory\+::mutex\+\_\+\hspace{0.3cm}{\ttfamily [mutable]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{classPosixSharedMemory_a3c22df6a8eefa0ccb825f77a1d6ac850}\label{classPosixSharedMemory_a3c22df6a8eefa0ccb825f77a1d6ac850}} 
+\index{PosixSharedMemory@{PosixSharedMemory}!name\_@{name\_}}
+\index{name\_@{name\_}!PosixSharedMemory@{PosixSharedMemory}}
+\doxysubsubsection{\texorpdfstring{name\_}{name\_}}
+{\footnotesize\ttfamily std\+::string Posix\+Shared\+Memory\+::name\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Posix\+Shared\+Memory/include/\+Posix\+Shared\+Memory/\mbox{\hyperlink{PosixSharedMemory_8hpp}{Posix\+Shared\+Memory.\+hpp}}\end{DoxyCompactItemize}

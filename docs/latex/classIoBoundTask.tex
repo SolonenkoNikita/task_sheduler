@@ -1,0 +1,118 @@
+\hypertarget{classIoBoundTask}{}\doxysection{Io\+Bound\+Task Class Reference}
+\label{classIoBoundTask}\index{IoBoundTask@{IoBoundTask}}
+
+
+Represents an I/\+O-\/bound task.  
+
+
+
+
+{\ttfamily \#include $<$Tasks.\+hpp$>$}
+
+
+
+Inheritance diagram for Io\+Bound\+Task\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=158pt]{classIoBoundTask__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Io\+Bound\+Task\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=332pt]{classIoBoundTask__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classIoBoundTask_af02ead7a2b7454f9f7b4e2b48fabb2e7}{Io\+Bound\+Task}} (int, const std\+::string \&, int)
+\begin{DoxyCompactList}\small\item\em Constructs an {\ttfamily \mbox{\hyperlink{classIoBoundTask}{Io\+Bound\+Task}}} instance. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIoBoundTask_a36b32eb0765f6d5974f641161083d9ed}{execute}} (std\+::chrono\+::milliseconds quantum) override
+\begin{DoxyCompactList}\small\item\em Executes the task for a given time quantum. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::filesystem\+::path \mbox{\hyperlink{classIoBoundTask_a7b7ce887f6a22278cc81c9424f931a7e}{file\+\_\+path\+\_\+}}
+\item 
+int \mbox{\hyperlink{classIoBoundTask_af9b728ac83471762abaa86ce31fd242c}{operations\+\_\+remaining\+\_\+}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Represents an I/\+O-\/bound task. 
+
+This class models a task that primarily performs I/O operations, such as writing to files. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classIoBoundTask_af02ead7a2b7454f9f7b4e2b48fabb2e7}\label{classIoBoundTask_af02ead7a2b7454f9f7b4e2b48fabb2e7}} 
+\index{IoBoundTask@{IoBoundTask}!IoBoundTask@{IoBoundTask}}
+\index{IoBoundTask@{IoBoundTask}!IoBoundTask@{IoBoundTask}}
+\doxysubsubsection{\texorpdfstring{IoBoundTask()}{IoBoundTask()}}
+{\footnotesize\ttfamily Io\+Bound\+Task\+::\+Io\+Bound\+Task (\begin{DoxyParamCaption}\item[{int}]{,  }\item[{const std\+::string \&}]{,  }\item[{int}]{ }\end{DoxyParamCaption})}
+
+
+
+Constructs an {\ttfamily \mbox{\hyperlink{classIoBoundTask}{Io\+Bound\+Task}}} instance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The unique identifier for the task. \\
+\hline
+{\em file\+\_\+path} & The path to the file where I/O operations will be performed. \\
+\hline
+{\em operations} & The number of I/O operations the task needs to perform. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classIoBoundTask_a36b32eb0765f6d5974f641161083d9ed}\label{classIoBoundTask_a36b32eb0765f6d5974f641161083d9ed}} 
+\index{IoBoundTask@{IoBoundTask}!execute@{execute}}
+\index{execute@{execute}!IoBoundTask@{IoBoundTask}}
+\doxysubsubsection{\texorpdfstring{execute()}{execute()}}
+{\footnotesize\ttfamily bool Io\+Bound\+Task\+::execute (\begin{DoxyParamCaption}\item[{std\+::chrono\+::milliseconds}]{quantum }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Executes the task for a given time quantum. 
+
+Simulates I/\+O-\/bound operations by writing to a file and introducing delays.
+
+
+\begin{DoxyParams}{Parameters}
+{\em quantum} & The maximum time the task can execute in this invocation. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool True if the task is completed, false otherwise. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUnixTask_ab5dfc87c4496f4349495cadc279977fc}{Unix\+Task}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classIoBoundTask_a7b7ce887f6a22278cc81c9424f931a7e}\label{classIoBoundTask_a7b7ce887f6a22278cc81c9424f931a7e}} 
+\index{IoBoundTask@{IoBoundTask}!file\_path\_@{file\_path\_}}
+\index{file\_path\_@{file\_path\_}!IoBoundTask@{IoBoundTask}}
+\doxysubsubsection{\texorpdfstring{file\_path\_}{file\_path\_}}
+{\footnotesize\ttfamily std\+::filesystem\+::path Io\+Bound\+Task\+::file\+\_\+path\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classIoBoundTask_af9b728ac83471762abaa86ce31fd242c}\label{classIoBoundTask_af9b728ac83471762abaa86ce31fd242c}} 
+\index{IoBoundTask@{IoBoundTask}!operations\_remaining\_@{operations\_remaining\_}}
+\index{operations\_remaining\_@{operations\_remaining\_}!IoBoundTask@{IoBoundTask}}
+\doxysubsubsection{\texorpdfstring{operations\_remaining\_}{operations\_remaining\_}}
+{\footnotesize\ttfamily int Io\+Bound\+Task\+::operations\+\_\+remaining\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Tasks/include/\+Tasks/\mbox{\hyperlink{Tasks_8hpp}{Tasks.\+hpp}}\end{DoxyCompactItemize}

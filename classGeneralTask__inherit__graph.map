@@ -1,0 +1,6 @@
+<map id="GeneralTask" name="GeneralTask">
+<area shape="rect" id="node1" title="Abstract base class representing a generic task." alt="" coords="94,5,197,32"/>
+<area shape="rect" id="node2" href="$classUnixTask.html" title="Represents a task in a Unix&#45;based system." alt="" coords="105,80,186,107"/>
+<area shape="rect" id="node3" href="$classCpuIntensiveTask.html" title="Represents a CPU&#45;intensive task." alt="" coords="5,155,141,181"/>
+<area shape="rect" id="node4" href="$classIoBoundTask.html" title="Represents an I/O&#45;bound task." alt="" coords="165,155,269,181"/>
+</map>

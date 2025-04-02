@@ -1,0 +1,116 @@
+\hypertarget{classCpuIntensiveTask}{}\doxysection{Cpu\+Intensive\+Task Class Reference}
+\label{classCpuIntensiveTask}\index{CpuIntensiveTask@{CpuIntensiveTask}}
+
+
+Represents a CPU-\/intensive task.  
+
+
+
+
+{\ttfamily \#include $<$Tasks.\+hpp$>$}
+
+
+
+Inheritance diagram for Cpu\+Intensive\+Task\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=182pt]{classCpuIntensiveTask__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Cpu\+Intensive\+Task\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=332pt]{classCpuIntensiveTask__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCpuIntensiveTask_ad24a5e053a5b4603383fa06a668817d1}{Cpu\+Intensive\+Task}} (int, std\+::chrono\+::milliseconds)
+\begin{DoxyCompactList}\small\item\em Constructs a {\ttfamily \mbox{\hyperlink{classCpuIntensiveTask}{Cpu\+Intensive\+Task}}} instance. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classCpuIntensiveTask_a5cec14a81d6559d0bc26a4c1d31325cb}{execute}} (std\+::chrono\+::milliseconds) override
+\begin{DoxyCompactList}\small\item\em Executes the task for a given time quantum. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::chrono\+::milliseconds \mbox{\hyperlink{classCpuIntensiveTask_a8984cc6047f14e77034cac095a80c531}{total\+\_\+work\+\_\+}}
+\item 
+std\+::chrono\+::milliseconds \mbox{\hyperlink{classCpuIntensiveTask_a38a635234b6476324fe0388ef2141e4d}{remaining\+\_\+work\+\_\+}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Represents a CPU-\/intensive task. 
+
+This class models a task that performs heavy computations, consuming significant CPU resources. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classCpuIntensiveTask_ad24a5e053a5b4603383fa06a668817d1}\label{classCpuIntensiveTask_ad24a5e053a5b4603383fa06a668817d1}} 
+\index{CpuIntensiveTask@{CpuIntensiveTask}!CpuIntensiveTask@{CpuIntensiveTask}}
+\index{CpuIntensiveTask@{CpuIntensiveTask}!CpuIntensiveTask@{CpuIntensiveTask}}
+\doxysubsubsection{\texorpdfstring{CpuIntensiveTask()}{CpuIntensiveTask()}}
+{\footnotesize\ttfamily Cpu\+Intensive\+Task\+::\+Cpu\+Intensive\+Task (\begin{DoxyParamCaption}\item[{int}]{,  }\item[{std\+::chrono\+::milliseconds}]{ }\end{DoxyParamCaption})}
+
+
+
+Constructs a {\ttfamily \mbox{\hyperlink{classCpuIntensiveTask}{Cpu\+Intensive\+Task}}} instance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The unique identifier for the task. \\
+\hline
+{\em duration} & The total duration of work the task needs to perform. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classCpuIntensiveTask_a5cec14a81d6559d0bc26a4c1d31325cb}\label{classCpuIntensiveTask_a5cec14a81d6559d0bc26a4c1d31325cb}} 
+\index{CpuIntensiveTask@{CpuIntensiveTask}!execute@{execute}}
+\index{execute@{execute}!CpuIntensiveTask@{CpuIntensiveTask}}
+\doxysubsubsection{\texorpdfstring{execute()}{execute()}}
+{\footnotesize\ttfamily bool Cpu\+Intensive\+Task\+::execute (\begin{DoxyParamCaption}\item[{std\+::chrono\+::milliseconds}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Executes the task for a given time quantum. 
+
+Simulates CPU-\/intensive computation by performing mathematical operations.
+
+
+\begin{DoxyParams}{Parameters}
+{\em quantum} & The maximum time the task can execute in this invocation. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool True if the task is completed, false otherwise. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUnixTask_ab5dfc87c4496f4349495cadc279977fc}{Unix\+Task}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classCpuIntensiveTask_a38a635234b6476324fe0388ef2141e4d}\label{classCpuIntensiveTask_a38a635234b6476324fe0388ef2141e4d}} 
+\index{CpuIntensiveTask@{CpuIntensiveTask}!remaining\_work\_@{remaining\_work\_}}
+\index{remaining\_work\_@{remaining\_work\_}!CpuIntensiveTask@{CpuIntensiveTask}}
+\doxysubsubsection{\texorpdfstring{remaining\_work\_}{remaining\_work\_}}
+{\footnotesize\ttfamily std\+::chrono\+::milliseconds Cpu\+Intensive\+Task\+::remaining\+\_\+work\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classCpuIntensiveTask_a8984cc6047f14e77034cac095a80c531}\label{classCpuIntensiveTask_a8984cc6047f14e77034cac095a80c531}} 
+\index{CpuIntensiveTask@{CpuIntensiveTask}!total\_work\_@{total\_work\_}}
+\index{total\_work\_@{total\_work\_}!CpuIntensiveTask@{CpuIntensiveTask}}
+\doxysubsubsection{\texorpdfstring{total\_work\_}{total\_work\_}}
+{\footnotesize\ttfamily std\+::chrono\+::milliseconds Cpu\+Intensive\+Task\+::total\+\_\+work\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Tasks/include/\+Tasks/\mbox{\hyperlink{Tasks_8hpp}{Tasks.\+hpp}}\end{DoxyCompactItemize}

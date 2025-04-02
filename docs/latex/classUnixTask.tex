@@ -1,0 +1,603 @@
+\hypertarget{classUnixTask}{}\doxysection{Unix\+Task Class Reference}
+\label{classUnixTask}\index{UnixTask@{UnixTask}}
+
+
+Represents a task in a Unix-\/based system.  
+
+
+
+
+{\ttfamily \#include $<$Task.\+hpp$>$}
+
+
+
+Inheritance diagram for Unix\+Task\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=278pt]{classUnixTask__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Unix\+Task\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=332pt]{classUnixTask__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structUnixTask_1_1SchedulingParams}{Scheduling\+Params}}
+\begin{DoxyCompactList}\small\item\em Parameters used for dynamic priority adjustment. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{classUnixTask_a88e4903a5436d33e92d0d07e85262bde}{Task\+State}} \{ \mbox{\hyperlink{classUnixTask_a88e4903a5436d33e92d0d07e85262bdea2baa69eafc7204f3bd8648eba580c489}{READY}}
+, \mbox{\hyperlink{classUnixTask_a88e4903a5436d33e92d0d07e85262bdea43491564ebcfd38568918efbd6e840fd}{RUNNING}}
+, \mbox{\hyperlink{classUnixTask_a88e4903a5436d33e92d0d07e85262bdea1869d56535e8b1449a6da54ff5e11f50}{WAITING}}
+, \mbox{\hyperlink{classUnixTask_a88e4903a5436d33e92d0d07e85262bdea8f7afecbc8fbc4cd0f50a57d1172482e}{COMPLETED}}
+ \}
+\begin{DoxyCompactList}\small\item\em Represents the state of a task. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classUnixTask_a9cf28eb51cacbfc78c2d76eeb24f50f2}{Unix\+Task}} (int, std\+::string, int=0)
+\begin{DoxyCompactList}\small\item\em Constructs a {\ttfamily \mbox{\hyperlink{classUnixTask}{Unix\+Task}}} instance. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classUnixTask_a34f1f0a29852c760d1138d117faacc7c}{get\+\_\+id}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Retrieves the task\textquotesingle{}s ID. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classUnixTask_abdea75c0010dfed6d8a792f7718eaa25}{get\+\_\+priority}} () const noexcept override
+\begin{DoxyCompactList}\small\item\em Retrieves the task\textquotesingle{}s priority. \end{DoxyCompactList}\item 
+const std\+::string \& \mbox{\hyperlink{classUnixTask_af3291964967f0251ad3547d57586c488}{get\+\_\+description}} () const noexcept override
+\begin{DoxyCompactList}\small\item\em Retrieves the task\textquotesingle{}s description (const version). \end{DoxyCompactList}\item 
+std\+::string \& \mbox{\hyperlink{classUnixTask_a99bd764eaba790f2fb72425eca7bbdf7}{get\+\_\+description}} () noexcept override
+\begin{DoxyCompactList}\small\item\em Retrieves the task\textquotesingle{}s description (non-\/const version). \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classUnixTask_a26c9f3099410278f393baeab4a522e9f}{is\+\_\+completed}} () const noexcept override
+\begin{DoxyCompactList}\small\item\em Checks if the task is completed. \end{DoxyCompactList}\item 
+std\+::chrono\+::steady\+\_\+clock\+::time\+\_\+point \mbox{\hyperlink{classUnixTask_a137f0b03aa557115fd070e2bfa5f1fc9}{get\+\_\+arrival\+\_\+time}} () const noexcept override
+\begin{DoxyCompactList}\small\item\em Retrieves the task\textquotesingle{}s arrival time. \end{DoxyCompactList}\item 
+std\+::any \mbox{\hyperlink{classUnixTask_a866b97d11c723e156faa4400bc52b5d5}{get\+\_\+attribute}} (const std\+::string \&name) const noexcept override
+\begin{DoxyCompactList}\small\item\em Retrieves an attribute by name. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classUnixTask_ab99e4a5a402350134478c61ab9b6a8ee}{set\+\_\+attribute}} (const std\+::string \&name, const std\+::any \&value) override
+\begin{DoxyCompactList}\small\item\em Sets an attribute by name. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classUnixTask_a0aca86aef9d46b1bad4f114fa9e5bd8c}{set\+\_\+state}} (\mbox{\hyperlink{classUnixTask_a88e4903a5436d33e92d0d07e85262bde}{Task\+State}} state)
+\begin{DoxyCompactList}\small\item\em Sets the task\textquotesingle{}s state. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classUnixTask_a4282c3b5bf079363259a0dc7ed9f7b9a}{set\+\_\+static\+\_\+priority}} (int) override
+\begin{DoxyCompactList}\small\item\em Sets the static priority of the task. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classUnixTask_a88e4903a5436d33e92d0d07e85262bde}{Task\+State}} \mbox{\hyperlink{classUnixTask_a2e3514e3b735e0dd98183a9259ddc834}{get\+\_\+state}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Retrieves the task\textquotesingle{}s current state. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classUnixTask_ac60192a0c6928248a5cfec2b5f369786}{adjust\+\_\+dynamic\+\_\+priority}} () override
+\begin{DoxyCompactList}\small\item\em Adjusts the dynamic priority of the task. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classUnixTask_ab5dfc87c4496f4349495cadc279977fc}{execute}} (std\+::chrono\+::milliseconds) override
+\begin{DoxyCompactList}\small\item\em Executes the task for a given duration. \end{DoxyCompactList}\item 
+pid\+\_\+t \mbox{\hyperlink{classUnixTask_a37a41237c78309cc2367a7bca3afa9d8}{launch\+\_\+process}} (const std\+::string \&)
+\begin{DoxyCompactList}\small\item\em Launches a process for the task. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classUnixTask_aa5f5d473d5605df1f338f94a13e402e5}{validate\+\_\+priority}} () const
+\begin{DoxyCompactList}\small\item\em Validates the task\textquotesingle{}s priority. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classUnixTask_a7e5d9ffd73a74fc65e0d0a4983d0b95e}{check\+\_\+process\+\_\+status}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Checks the status of the task\textquotesingle{}s associated process. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const int \mbox{\hyperlink{classUnixTask_a076c78231149f0dfe7d6094016450ebc}{id\+\_\+}}
+\item 
+std\+::string \mbox{\hyperlink{classUnixTask_aecf6822f36010cbe3b74f6b3a52aed59}{description\+\_\+}}
+\item 
+std\+::chrono\+::steady\+\_\+clock\+::time\+\_\+point \mbox{\hyperlink{classUnixTask_a04edb8ab616b05d103880f83cb25dac8}{arrival\+\_\+time\+\_\+}}
+\item 
+std\+::unordered\+\_\+map$<$ std\+::string, std\+::any $>$ \mbox{\hyperlink{classUnixTask_a8e4481becdd8b187019e0a5ac2ffaa8d}{attributes\+\_\+}}
+\item 
+int \mbox{\hyperlink{classUnixTask_aff6fc29b940e7145eae82eb46242f5c8}{static\+\_\+priority\+\_\+}} = 0
+\item 
+int \mbox{\hyperlink{classUnixTask_afe0ea977a4cc1cba0e222b42dd8dcd1b}{dynamic\+\_\+priority\+\_\+}} = 0
+\item 
+\mbox{\hyperlink{classUnixTask_a88e4903a5436d33e92d0d07e85262bde}{Task\+State}} \mbox{\hyperlink{classUnixTask_a671baf1ac8aab1320d1d35f5fa385208}{state\+\_\+}} = \mbox{\hyperlink{classUnixTask_a88e4903a5436d33e92d0d07e85262bdea2baa69eafc7204f3bd8648eba580c489}{Task\+State\+::\+READY}}
+\item 
+bool \mbox{\hyperlink{classUnixTask_a92481b983ad372f472e9de82f7da428c}{completed\+\_\+}} = false
+\item 
+pid\+\_\+t \mbox{\hyperlink{classUnixTask_ad0f23832649bcb7b4d6433566aaf037a}{pid\+\_\+}} = -\/1
+\begin{DoxyCompactList}\small\item\em PID of the associated process. \end{DoxyCompactList}\item 
+std\+::chrono\+::steady\+\_\+clock\+::time\+\_\+point \mbox{\hyperlink{classUnixTask_ad58dab31da303606cfc677f5a7a0f381}{last\+\_\+execution\+\_\+time\+\_\+}}
+\item 
+float \mbox{\hyperlink{classUnixTask_abb439e7d3fcab7aa751374ebe0baea49}{cpu\+\_\+usage\+\_\+}} = 0.\+0f
+\begin{DoxyCompactList}\small\item\em CPU usage of the task. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classUnixTask_adb6ca21b178c2dca74483b563341c7ee}{virtual\+\_\+runtime\+\_\+}} = 0.\+0f
+\begin{DoxyCompactList}\small\item\em Virtual runtime of the task. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classUnixTask_a9b6fec14804c45317a0ec9dfd2325c35}{is\+\_\+io\+\_\+bound\+\_\+}} = false
+\begin{DoxyCompactList}\small\item\em Indicates whether the task is I/O bound. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structUnixTask_1_1SchedulingParams}{Scheduling\+Params}} \mbox{\hyperlink{classUnixTask_a27d1192735a51ac99888b157461cf90f}{scheduling\+\_\+params\+\_\+}}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classLogger}{Logger}} $>$ \mbox{\hyperlink{classUnixTask_af7313bf03ef716430781cc5ee616397f}{logger\+\_\+}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{classUnixTask_a683b51d0eeabef9206d797ada458d114}{task\+\_\+state\+\_\+to\+\_\+string}} (\mbox{\hyperlink{classUnixTask_a88e4903a5436d33e92d0d07e85262bde}{Task\+State}})
+\begin{DoxyCompactList}\small\item\em Converts a {\ttfamily Task\+State} enum to its string representation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a task in a Unix-\/based system. 
+
+Implements the {\ttfamily \mbox{\hyperlink{classGeneralTask}{General\+Task}}} interface and provides additional functionality for managing task states, priorities, and attributes. 
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{classUnixTask_a88e4903a5436d33e92d0d07e85262bde}\label{classUnixTask_a88e4903a5436d33e92d0d07e85262bde}} 
+\index{UnixTask@{UnixTask}!TaskState@{TaskState}}
+\index{TaskState@{TaskState}!UnixTask@{UnixTask}}
+\doxysubsubsection{\texorpdfstring{TaskState}{TaskState}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{classUnixTask_a88e4903a5436d33e92d0d07e85262bde}{Unix\+Task\+::\+Task\+State}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Represents the state of a task. 
+
+Possible states include READY, RUNNING, WAITING, and COMPLETED. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{READY@{READY}!UnixTask@{UnixTask}}\index{UnixTask@{UnixTask}!READY@{READY}}}\mbox{\Hypertarget{classUnixTask_a88e4903a5436d33e92d0d07e85262bdea2baa69eafc7204f3bd8648eba580c489}\label{classUnixTask_a88e4903a5436d33e92d0d07e85262bdea2baa69eafc7204f3bd8648eba580c489}} 
+READY&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RUNNING@{RUNNING}!UnixTask@{UnixTask}}\index{UnixTask@{UnixTask}!RUNNING@{RUNNING}}}\mbox{\Hypertarget{classUnixTask_a88e4903a5436d33e92d0d07e85262bdea43491564ebcfd38568918efbd6e840fd}\label{classUnixTask_a88e4903a5436d33e92d0d07e85262bdea43491564ebcfd38568918efbd6e840fd}} 
+RUNNING&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WAITING@{WAITING}!UnixTask@{UnixTask}}\index{UnixTask@{UnixTask}!WAITING@{WAITING}}}\mbox{\Hypertarget{classUnixTask_a88e4903a5436d33e92d0d07e85262bdea1869d56535e8b1449a6da54ff5e11f50}\label{classUnixTask_a88e4903a5436d33e92d0d07e85262bdea1869d56535e8b1449a6da54ff5e11f50}} 
+WAITING&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{COMPLETED@{COMPLETED}!UnixTask@{UnixTask}}\index{UnixTask@{UnixTask}!COMPLETED@{COMPLETED}}}\mbox{\Hypertarget{classUnixTask_a88e4903a5436d33e92d0d07e85262bdea8f7afecbc8fbc4cd0f50a57d1172482e}\label{classUnixTask_a88e4903a5436d33e92d0d07e85262bdea8f7afecbc8fbc4cd0f50a57d1172482e}} 
+COMPLETED&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classUnixTask_a9cf28eb51cacbfc78c2d76eeb24f50f2}\label{classUnixTask_a9cf28eb51cacbfc78c2d76eeb24f50f2}} 
+\index{UnixTask@{UnixTask}!UnixTask@{UnixTask}}
+\index{UnixTask@{UnixTask}!UnixTask@{UnixTask}}
+\doxysubsubsection{\texorpdfstring{UnixTask()}{UnixTask()}}
+{\footnotesize\ttfamily Unix\+Task\+::\+Unix\+Task (\begin{DoxyParamCaption}\item[{int}]{,  }\item[{std\+::string}]{,  }\item[{int}]{ = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Constructs a {\ttfamily \mbox{\hyperlink{classUnixTask}{Unix\+Task}}} instance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The unique identifier for the task. \\
+\hline
+{\em desc} & A description of the task. \\
+\hline
+{\em static\+\_\+prio} & The initial static priority of the task (default\+: 0). \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classUnixTask_ac60192a0c6928248a5cfec2b5f369786}\label{classUnixTask_ac60192a0c6928248a5cfec2b5f369786}} 
+\index{UnixTask@{UnixTask}!adjust\_dynamic\_priority@{adjust\_dynamic\_priority}}
+\index{adjust\_dynamic\_priority@{adjust\_dynamic\_priority}!UnixTask@{UnixTask}}
+\doxysubsubsection{\texorpdfstring{adjust\_dynamic\_priority()}{adjust\_dynamic\_priority()}}
+{\footnotesize\ttfamily void Unix\+Task\+::adjust\+\_\+dynamic\+\_\+priority (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Adjusts the dynamic priority of the task. 
+
+Calculates the dynamic priority based on CPU usage, starvation factor, and I/O bound status. 
+
+Implements \mbox{\hyperlink{classGeneralTask_aba020ccf0bf6d72a47a496ff53c3c1ba}{General\+Task}}.
+
+\mbox{\Hypertarget{classUnixTask_a7e5d9ffd73a74fc65e0d0a4983d0b95e}\label{classUnixTask_a7e5d9ffd73a74fc65e0d0a4983d0b95e}} 
+\index{UnixTask@{UnixTask}!check\_process\_status@{check\_process\_status}}
+\index{check\_process\_status@{check\_process\_status}!UnixTask@{UnixTask}}
+\doxysubsubsection{\texorpdfstring{check\_process\_status()}{check\_process\_status()}}
+{\footnotesize\ttfamily bool Unix\+Task\+::check\+\_\+process\+\_\+status (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [noexcept]}}
+
+
+
+Checks the status of the task\textquotesingle{}s associated process. 
+
+\begin{DoxyReturn}{Returns}
+bool True if the process has terminated, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classUnixTask_ab5dfc87c4496f4349495cadc279977fc}\label{classUnixTask_ab5dfc87c4496f4349495cadc279977fc}} 
+\index{UnixTask@{UnixTask}!execute@{execute}}
+\index{execute@{execute}!UnixTask@{UnixTask}}
+\doxysubsubsection{\texorpdfstring{execute()}{execute()}}
+{\footnotesize\ttfamily bool Unix\+Task\+::execute (\begin{DoxyParamCaption}\item[{std\+::chrono\+::milliseconds}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Executes the task for a given duration. 
+
+Throws an exception as this method is not implemented.
+
+
+\begin{DoxyParams}{Parameters}
+{\em duration} & The duration for which the task should execute. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool Always throws an exception. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classGeneralTask_a4aa9da8e8f3dbaddc21097b8a7e8f484}{General\+Task}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{classCpuIntensiveTask_a5cec14a81d6559d0bc26a4c1d31325cb}{Cpu\+Intensive\+Task}}, and \mbox{\hyperlink{classIoBoundTask_a36b32eb0765f6d5974f641161083d9ed}{Io\+Bound\+Task}}.
+
+\mbox{\Hypertarget{classUnixTask_a137f0b03aa557115fd070e2bfa5f1fc9}\label{classUnixTask_a137f0b03aa557115fd070e2bfa5f1fc9}} 
+\index{UnixTask@{UnixTask}!get\_arrival\_time@{get\_arrival\_time}}
+\index{get\_arrival\_time@{get\_arrival\_time}!UnixTask@{UnixTask}}
+\doxysubsubsection{\texorpdfstring{get\_arrival\_time()}{get\_arrival\_time()}}
+{\footnotesize\ttfamily std\+::chrono\+::steady\+\_\+clock\+::time\+\_\+point Unix\+Task\+::get\+\_\+arrival\+\_\+time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Retrieves the task\textquotesingle{}s arrival time. 
+
+\begin{DoxyReturn}{Returns}
+std\+::chrono\+::steady\+\_\+clock\+::time\+\_\+point The time when the task arrived. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classGeneralTask_a1cdd4884463efc8f8f2c7de6355152c6}{General\+Task}}.
+
+\mbox{\Hypertarget{classUnixTask_a866b97d11c723e156faa4400bc52b5d5}\label{classUnixTask_a866b97d11c723e156faa4400bc52b5d5}} 
+\index{UnixTask@{UnixTask}!get\_attribute@{get\_attribute}}
+\index{get\_attribute@{get\_attribute}!UnixTask@{UnixTask}}
+\doxysubsubsection{\texorpdfstring{get\_attribute()}{get\_attribute()}}
+{\footnotesize\ttfamily std\+::any Unix\+Task\+::get\+\_\+attribute (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Retrieves an attribute by name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the attribute. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::any The attribute value, or an empty {\ttfamily std\+::any} if not found. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classGeneralTask_ad833672629757b578a6ddc26ed7eb8de}{General\+Task}}.
+
+\mbox{\Hypertarget{classUnixTask_af3291964967f0251ad3547d57586c488}\label{classUnixTask_af3291964967f0251ad3547d57586c488}} 
+\index{UnixTask@{UnixTask}!get\_description@{get\_description}}
+\index{get\_description@{get\_description}!UnixTask@{UnixTask}}
+\doxysubsubsection{\texorpdfstring{get\_description()}{get\_description()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily const std\+::string\& Unix\+Task\+::get\+\_\+description (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Retrieves the task\textquotesingle{}s description (const version). 
+
+\begin{DoxyReturn}{Returns}
+const std\+::string\& The task\textquotesingle{}s description. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classGeneralTask_a53988f34d3df2677b9677cce951546bb}{General\+Task}}.
+
+\mbox{\Hypertarget{classUnixTask_a99bd764eaba790f2fb72425eca7bbdf7}\label{classUnixTask_a99bd764eaba790f2fb72425eca7bbdf7}} 
+\index{UnixTask@{UnixTask}!get\_description@{get\_description}}
+\index{get\_description@{get\_description}!UnixTask@{UnixTask}}
+\doxysubsubsection{\texorpdfstring{get\_description()}{get\_description()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::string\& Unix\+Task\+::get\+\_\+description (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Retrieves the task\textquotesingle{}s description (non-\/const version). 
+
+\begin{DoxyReturn}{Returns}
+std\+::string\& The task\textquotesingle{}s description. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classGeneralTask_a66cfb3c834a44c43c2ae56f7ee78f6c5}{General\+Task}}.
+
+\mbox{\Hypertarget{classUnixTask_a34f1f0a29852c760d1138d117faacc7c}\label{classUnixTask_a34f1f0a29852c760d1138d117faacc7c}} 
+\index{UnixTask@{UnixTask}!get\_id@{get\_id}}
+\index{get\_id@{get\_id}!UnixTask@{UnixTask}}
+\doxysubsubsection{\texorpdfstring{get\_id()}{get\_id()}}
+{\footnotesize\ttfamily int Unix\+Task\+::get\+\_\+id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Retrieves the task\textquotesingle{}s ID. 
+
+\begin{DoxyReturn}{Returns}
+int The task\textquotesingle{}s ID. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classUnixTask_abdea75c0010dfed6d8a792f7718eaa25}\label{classUnixTask_abdea75c0010dfed6d8a792f7718eaa25}} 
+\index{UnixTask@{UnixTask}!get\_priority@{get\_priority}}
+\index{get\_priority@{get\_priority}!UnixTask@{UnixTask}}
+\doxysubsubsection{\texorpdfstring{get\_priority()}{get\_priority()}}
+{\footnotesize\ttfamily int Unix\+Task\+::get\+\_\+priority (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Retrieves the task\textquotesingle{}s priority. 
+
+\begin{DoxyReturn}{Returns}
+int The task\textquotesingle{}s current priority. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classGeneralTask_a686b2b5a7a84b9e909df406e881f9a45}{General\+Task}}.
+
+\mbox{\Hypertarget{classUnixTask_a2e3514e3b735e0dd98183a9259ddc834}\label{classUnixTask_a2e3514e3b735e0dd98183a9259ddc834}} 
+\index{UnixTask@{UnixTask}!get\_state@{get\_state}}
+\index{get\_state@{get\_state}!UnixTask@{UnixTask}}
+\doxysubsubsection{\texorpdfstring{get\_state()}{get\_state()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classUnixTask_a88e4903a5436d33e92d0d07e85262bde}{Task\+State}} Unix\+Task\+::get\+\_\+state (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Retrieves the task\textquotesingle{}s current state. 
+
+\begin{DoxyReturn}{Returns}
+Task\+State The current state of the task. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classUnixTask_a26c9f3099410278f393baeab4a522e9f}\label{classUnixTask_a26c9f3099410278f393baeab4a522e9f}} 
+\index{UnixTask@{UnixTask}!is\_completed@{is\_completed}}
+\index{is\_completed@{is\_completed}!UnixTask@{UnixTask}}
+\doxysubsubsection{\texorpdfstring{is\_completed()}{is\_completed()}}
+{\footnotesize\ttfamily bool Unix\+Task\+::is\+\_\+completed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Checks if the task is completed. 
+
+\begin{DoxyReturn}{Returns}
+bool True if the task is completed, false otherwise. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classGeneralTask_aa8438817795bf9a89c92d48c3748b8d8}{General\+Task}}.
+
+\mbox{\Hypertarget{classUnixTask_a37a41237c78309cc2367a7bca3afa9d8}\label{classUnixTask_a37a41237c78309cc2367a7bca3afa9d8}} 
+\index{UnixTask@{UnixTask}!launch\_process@{launch\_process}}
+\index{launch\_process@{launch\_process}!UnixTask@{UnixTask}}
+\doxysubsubsection{\texorpdfstring{launch\_process()}{launch\_process()}}
+{\footnotesize\ttfamily pid\+\_\+t Unix\+Task\+::launch\+\_\+process (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{ }\end{DoxyParamCaption})}
+
+
+
+Launches a process for the task. 
+
+Forks a new process and executes the specified command.
+
+
+\begin{DoxyParams}{Parameters}
+{\em command} & The command to execute in the new process. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pid\+\_\+t The PID of the launched process. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & If the process cannot be forked. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classUnixTask_ab99e4a5a402350134478c61ab9b6a8ee}\label{classUnixTask_ab99e4a5a402350134478c61ab9b6a8ee}} 
+\index{UnixTask@{UnixTask}!set\_attribute@{set\_attribute}}
+\index{set\_attribute@{set\_attribute}!UnixTask@{UnixTask}}
+\doxysubsubsection{\texorpdfstring{set\_attribute()}{set\_attribute()}}
+{\footnotesize\ttfamily void Unix\+Task\+::set\+\_\+attribute (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{const std\+::any \&}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Sets an attribute by name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the attribute. \\
+\hline
+{\em value} & The value to set for the attribute. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classGeneralTask_a30988c36c075d2c96f7778080189da22}{General\+Task}}.
+
+\mbox{\Hypertarget{classUnixTask_a0aca86aef9d46b1bad4f114fa9e5bd8c}\label{classUnixTask_a0aca86aef9d46b1bad4f114fa9e5bd8c}} 
+\index{UnixTask@{UnixTask}!set\_state@{set\_state}}
+\index{set\_state@{set\_state}!UnixTask@{UnixTask}}
+\doxysubsubsection{\texorpdfstring{set\_state()}{set\_state()}}
+{\footnotesize\ttfamily void Unix\+Task\+::set\+\_\+state (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classUnixTask_a88e4903a5436d33e92d0d07e85262bde}{Task\+State}}}]{state }\end{DoxyParamCaption})}
+
+
+
+Sets the task\textquotesingle{}s state. 
+
+Logs the state change and updates the task\textquotesingle{}s state.
+
+
+\begin{DoxyParams}{Parameters}
+{\em state} & The new state of the task. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classUnixTask_a4282c3b5bf079363259a0dc7ed9f7b9a}\label{classUnixTask_a4282c3b5bf079363259a0dc7ed9f7b9a}} 
+\index{UnixTask@{UnixTask}!set\_static\_priority@{set\_static\_priority}}
+\index{set\_static\_priority@{set\_static\_priority}!UnixTask@{UnixTask}}
+\doxysubsubsection{\texorpdfstring{set\_static\_priority()}{set\_static\_priority()}}
+{\footnotesize\ttfamily void Unix\+Task\+::set\+\_\+static\+\_\+priority (\begin{DoxyParamCaption}\item[{int}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Sets the static priority of the task. 
+
+Validates the priority and adjusts the dynamic priority accordingly.
+
+
+\begin{DoxyParams}{Parameters}
+{\em nice\+\_\+value} & The new static priority value. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classGeneralTask_ab367f2a89150d9307fe8e30c875b3e15}{General\+Task}}.
+
+\mbox{\Hypertarget{classUnixTask_a683b51d0eeabef9206d797ada458d114}\label{classUnixTask_a683b51d0eeabef9206d797ada458d114}} 
+\index{UnixTask@{UnixTask}!task\_state\_to\_string@{task\_state\_to\_string}}
+\index{task\_state\_to\_string@{task\_state\_to\_string}!UnixTask@{UnixTask}}
+\doxysubsubsection{\texorpdfstring{task\_state\_to\_string()}{task\_state\_to\_string()}}
+{\footnotesize\ttfamily std\+::string Unix\+Task\+::task\+\_\+state\+\_\+to\+\_\+string (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classUnixTask_a88e4903a5436d33e92d0d07e85262bde}{Task\+State}}}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Converts a {\ttfamily Task\+State} enum to its string representation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em state} & The task state to convert. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::string The string representation of the task state. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classUnixTask_aa5f5d473d5605df1f338f94a13e402e5}\label{classUnixTask_aa5f5d473d5605df1f338f94a13e402e5}} 
+\index{UnixTask@{UnixTask}!validate\_priority@{validate\_priority}}
+\index{validate\_priority@{validate\_priority}!UnixTask@{UnixTask}}
+\doxysubsubsection{\texorpdfstring{validate\_priority()}{validate\_priority()}}
+{\footnotesize\ttfamily void Unix\+Task\+::validate\+\_\+priority (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Validates the task\textquotesingle{}s priority. 
+
+Ensures the priority is within the valid range \mbox{[}-\/20, 19\mbox{]}.
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & If the priority is out of range. \\
+\hline
+\end{DoxyExceptions}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classUnixTask_a04edb8ab616b05d103880f83cb25dac8}\label{classUnixTask_a04edb8ab616b05d103880f83cb25dac8}} 
+\index{UnixTask@{UnixTask}!arrival\_time\_@{arrival\_time\_}}
+\index{arrival\_time\_@{arrival\_time\_}!UnixTask@{UnixTask}}
+\doxysubsubsection{\texorpdfstring{arrival\_time\_}{arrival\_time\_}}
+{\footnotesize\ttfamily std\+::chrono\+::steady\+\_\+clock\+::time\+\_\+point Unix\+Task\+::arrival\+\_\+time\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classUnixTask_a8e4481becdd8b187019e0a5ac2ffaa8d}\label{classUnixTask_a8e4481becdd8b187019e0a5ac2ffaa8d}} 
+\index{UnixTask@{UnixTask}!attributes\_@{attributes\_}}
+\index{attributes\_@{attributes\_}!UnixTask@{UnixTask}}
+\doxysubsubsection{\texorpdfstring{attributes\_}{attributes\_}}
+{\footnotesize\ttfamily std\+::unordered\+\_\+map$<$std\+::string, std\+::any$>$ Unix\+Task\+::attributes\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classUnixTask_a92481b983ad372f472e9de82f7da428c}\label{classUnixTask_a92481b983ad372f472e9de82f7da428c}} 
+\index{UnixTask@{UnixTask}!completed\_@{completed\_}}
+\index{completed\_@{completed\_}!UnixTask@{UnixTask}}
+\doxysubsubsection{\texorpdfstring{completed\_}{completed\_}}
+{\footnotesize\ttfamily bool Unix\+Task\+::completed\+\_\+ = false\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classUnixTask_abb439e7d3fcab7aa751374ebe0baea49}\label{classUnixTask_abb439e7d3fcab7aa751374ebe0baea49}} 
+\index{UnixTask@{UnixTask}!cpu\_usage\_@{cpu\_usage\_}}
+\index{cpu\_usage\_@{cpu\_usage\_}!UnixTask@{UnixTask}}
+\doxysubsubsection{\texorpdfstring{cpu\_usage\_}{cpu\_usage\_}}
+{\footnotesize\ttfamily float Unix\+Task\+::cpu\+\_\+usage\+\_\+ = 0.\+0f\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+CPU usage of the task. 
+
+\mbox{\Hypertarget{classUnixTask_aecf6822f36010cbe3b74f6b3a52aed59}\label{classUnixTask_aecf6822f36010cbe3b74f6b3a52aed59}} 
+\index{UnixTask@{UnixTask}!description\_@{description\_}}
+\index{description\_@{description\_}!UnixTask@{UnixTask}}
+\doxysubsubsection{\texorpdfstring{description\_}{description\_}}
+{\footnotesize\ttfamily std\+::string Unix\+Task\+::description\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classUnixTask_afe0ea977a4cc1cba0e222b42dd8dcd1b}\label{classUnixTask_afe0ea977a4cc1cba0e222b42dd8dcd1b}} 
+\index{UnixTask@{UnixTask}!dynamic\_priority\_@{dynamic\_priority\_}}
+\index{dynamic\_priority\_@{dynamic\_priority\_}!UnixTask@{UnixTask}}
+\doxysubsubsection{\texorpdfstring{dynamic\_priority\_}{dynamic\_priority\_}}
+{\footnotesize\ttfamily int Unix\+Task\+::dynamic\+\_\+priority\+\_\+ = 0\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classUnixTask_a076c78231149f0dfe7d6094016450ebc}\label{classUnixTask_a076c78231149f0dfe7d6094016450ebc}} 
+\index{UnixTask@{UnixTask}!id\_@{id\_}}
+\index{id\_@{id\_}!UnixTask@{UnixTask}}
+\doxysubsubsection{\texorpdfstring{id\_}{id\_}}
+{\footnotesize\ttfamily const int Unix\+Task\+::id\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classUnixTask_a9b6fec14804c45317a0ec9dfd2325c35}\label{classUnixTask_a9b6fec14804c45317a0ec9dfd2325c35}} 
+\index{UnixTask@{UnixTask}!is\_io\_bound\_@{is\_io\_bound\_}}
+\index{is\_io\_bound\_@{is\_io\_bound\_}!UnixTask@{UnixTask}}
+\doxysubsubsection{\texorpdfstring{is\_io\_bound\_}{is\_io\_bound\_}}
+{\footnotesize\ttfamily bool Unix\+Task\+::is\+\_\+io\+\_\+bound\+\_\+ = false\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Indicates whether the task is I/O bound. 
+
+\mbox{\Hypertarget{classUnixTask_ad58dab31da303606cfc677f5a7a0f381}\label{classUnixTask_ad58dab31da303606cfc677f5a7a0f381}} 
+\index{UnixTask@{UnixTask}!last\_execution\_time\_@{last\_execution\_time\_}}
+\index{last\_execution\_time\_@{last\_execution\_time\_}!UnixTask@{UnixTask}}
+\doxysubsubsection{\texorpdfstring{last\_execution\_time\_}{last\_execution\_time\_}}
+{\footnotesize\ttfamily std\+::chrono\+::steady\+\_\+clock\+::time\+\_\+point Unix\+Task\+::last\+\_\+execution\+\_\+time\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classUnixTask_af7313bf03ef716430781cc5ee616397f}\label{classUnixTask_af7313bf03ef716430781cc5ee616397f}} 
+\index{UnixTask@{UnixTask}!logger\_@{logger\_}}
+\index{logger\_@{logger\_}!UnixTask@{UnixTask}}
+\doxysubsubsection{\texorpdfstring{logger\_}{logger\_}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classLogger}{Logger}}$>$ Unix\+Task\+::logger\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classUnixTask_ad0f23832649bcb7b4d6433566aaf037a}\label{classUnixTask_ad0f23832649bcb7b4d6433566aaf037a}} 
+\index{UnixTask@{UnixTask}!pid\_@{pid\_}}
+\index{pid\_@{pid\_}!UnixTask@{UnixTask}}
+\doxysubsubsection{\texorpdfstring{pid\_}{pid\_}}
+{\footnotesize\ttfamily pid\+\_\+t Unix\+Task\+::pid\+\_\+ = -\/1\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+PID of the associated process. 
+
+\mbox{\Hypertarget{classUnixTask_a27d1192735a51ac99888b157461cf90f}\label{classUnixTask_a27d1192735a51ac99888b157461cf90f}} 
+\index{UnixTask@{UnixTask}!scheduling\_params\_@{scheduling\_params\_}}
+\index{scheduling\_params\_@{scheduling\_params\_}!UnixTask@{UnixTask}}
+\doxysubsubsection{\texorpdfstring{scheduling\_params\_}{scheduling\_params\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structUnixTask_1_1SchedulingParams}{Scheduling\+Params}} Unix\+Task\+::scheduling\+\_\+params\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classUnixTask_a671baf1ac8aab1320d1d35f5fa385208}\label{classUnixTask_a671baf1ac8aab1320d1d35f5fa385208}} 
+\index{UnixTask@{UnixTask}!state\_@{state\_}}
+\index{state\_@{state\_}!UnixTask@{UnixTask}}
+\doxysubsubsection{\texorpdfstring{state\_}{state\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classUnixTask_a88e4903a5436d33e92d0d07e85262bde}{Task\+State}} Unix\+Task\+::state\+\_\+ = \mbox{\hyperlink{classUnixTask_a88e4903a5436d33e92d0d07e85262bdea2baa69eafc7204f3bd8648eba580c489}{Task\+State\+::\+READY}}\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classUnixTask_aff6fc29b940e7145eae82eb46242f5c8}\label{classUnixTask_aff6fc29b940e7145eae82eb46242f5c8}} 
+\index{UnixTask@{UnixTask}!static\_priority\_@{static\_priority\_}}
+\index{static\_priority\_@{static\_priority\_}!UnixTask@{UnixTask}}
+\doxysubsubsection{\texorpdfstring{static\_priority\_}{static\_priority\_}}
+{\footnotesize\ttfamily int Unix\+Task\+::static\+\_\+priority\+\_\+ = 0\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classUnixTask_adb6ca21b178c2dca74483b563341c7ee}\label{classUnixTask_adb6ca21b178c2dca74483b563341c7ee}} 
+\index{UnixTask@{UnixTask}!virtual\_runtime\_@{virtual\_runtime\_}}
+\index{virtual\_runtime\_@{virtual\_runtime\_}!UnixTask@{UnixTask}}
+\doxysubsubsection{\texorpdfstring{virtual\_runtime\_}{virtual\_runtime\_}}
+{\footnotesize\ttfamily float Unix\+Task\+::virtual\+\_\+runtime\+\_\+ = 0.\+0f\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Virtual runtime of the task. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Task/include/\+Task/\mbox{\hyperlink{Task_8hpp}{Task.\+hpp}}\end{DoxyCompactItemize}

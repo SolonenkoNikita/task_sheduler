@@ -1,0 +1,157 @@
+\hypertarget{classSharedMemory}{}\doxysection{Shared\+Memory Class Reference}
+\label{classSharedMemory}\index{SharedMemory@{SharedMemory}}
+
+
+{\ttfamily \#include $<$Shared\+Memory.\+hpp$>$}
+
+
+
+Inheritance diagram for Shared\+Memory\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=197pt]{classSharedMemory__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classSharedMemory_a8f6140525811833433d7eecd1445134c}{$\sim$\+Shared\+Memory}} ()=default
+\item 
+virtual void \mbox{\hyperlink{classSharedMemory_af316cbb26e94447ac71796b7813b71b5}{create}} ()=0
+\item 
+virtual void \mbox{\hyperlink{classSharedMemory_a397004b13b052b63e5d763984e8fa3aa}{attach}} ()=0
+\item 
+virtual void \mbox{\hyperlink{classSharedMemory_a2946aa9d77d85dda3370c6a4192a9797}{detach}} ()=0
+\item 
+virtual void \mbox{\hyperlink{classSharedMemory_a9669b8e08e85f5e4e2e6316c7d33eadb}{destroy}} ()=0
+\item 
+virtual void \mbox{\hyperlink{classSharedMemory_a9075b137dac6bce6d532c02486d4064f}{enqueue}} (const \mbox{\hyperlink{structSharedTask}{Shared\+Task}} \&)=0
+\item 
+virtual \mbox{\hyperlink{structSharedTask}{Shared\+Task}} \mbox{\hyperlink{classSharedMemory_a989b4ba2e0c2e5e1bf4797212973a672}{dequeue}} ()=0
+\item 
+virtual size\+\_\+t \mbox{\hyperlink{classSharedMemory_a8765cb78485992b19f2a15877ef174cd}{size}} () const =0
+\item 
+virtual bool \mbox{\hyperlink{classSharedMemory_a0bd506a66c8b3b5c4e213832b1e11c00}{empty}} () const =0
+\item 
+virtual const std\+::string \& \mbox{\hyperlink{classSharedMemory_ab31e7f56c9f42f51458bfbf3bd06bab4}{name}} () const noexcept=0
+\item 
+virtual size\+\_\+t \mbox{\hyperlink{classSharedMemory_a6e262d5ebaecbbddd144e8ad9f278fff}{capacity}} () const noexcept=0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classSharedMemory_a8f6140525811833433d7eecd1445134c}\label{classSharedMemory_a8f6140525811833433d7eecd1445134c}} 
+\index{SharedMemory@{SharedMemory}!````~SharedMemory@{$\sim$SharedMemory}}
+\index{````~SharedMemory@{$\sim$SharedMemory}!SharedMemory@{SharedMemory}}
+\doxysubsubsection{\texorpdfstring{$\sim$SharedMemory()}{~SharedMemory()}}
+{\footnotesize\ttfamily virtual Shared\+Memory\+::$\sim$\+Shared\+Memory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSharedMemory_a397004b13b052b63e5d763984e8fa3aa}\label{classSharedMemory_a397004b13b052b63e5d763984e8fa3aa}} 
+\index{SharedMemory@{SharedMemory}!attach@{attach}}
+\index{attach@{attach}!SharedMemory@{SharedMemory}}
+\doxysubsubsection{\texorpdfstring{attach()}{attach()}}
+{\footnotesize\ttfamily virtual void Shared\+Memory\+::attach (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classPosixSharedMemory_a7a388f5494959263d8e23fdd2c5299d8}{Posix\+Shared\+Memory}}.
+
+\mbox{\Hypertarget{classSharedMemory_a6e262d5ebaecbbddd144e8ad9f278fff}\label{classSharedMemory_a6e262d5ebaecbbddd144e8ad9f278fff}} 
+\index{SharedMemory@{SharedMemory}!capacity@{capacity}}
+\index{capacity@{capacity}!SharedMemory@{SharedMemory}}
+\doxysubsubsection{\texorpdfstring{capacity()}{capacity()}}
+{\footnotesize\ttfamily virtual size\+\_\+t Shared\+Memory\+::capacity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Implemented in \mbox{\hyperlink{classPosixSharedMemory_ab74db0013852a914fa25013db749b60e}{Posix\+Shared\+Memory}}.
+
+\mbox{\Hypertarget{classSharedMemory_af316cbb26e94447ac71796b7813b71b5}\label{classSharedMemory_af316cbb26e94447ac71796b7813b71b5}} 
+\index{SharedMemory@{SharedMemory}!create@{create}}
+\index{create@{create}!SharedMemory@{SharedMemory}}
+\doxysubsubsection{\texorpdfstring{create()}{create()}}
+{\footnotesize\ttfamily virtual void Shared\+Memory\+::create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classPosixSharedMemory_a001a7cd56708aa829b62b2cb79f2a1c1}{Posix\+Shared\+Memory}}.
+
+\mbox{\Hypertarget{classSharedMemory_a989b4ba2e0c2e5e1bf4797212973a672}\label{classSharedMemory_a989b4ba2e0c2e5e1bf4797212973a672}} 
+\index{SharedMemory@{SharedMemory}!dequeue@{dequeue}}
+\index{dequeue@{dequeue}!SharedMemory@{SharedMemory}}
+\doxysubsubsection{\texorpdfstring{dequeue()}{dequeue()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{structSharedTask}{Shared\+Task}} Shared\+Memory\+::dequeue (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classPosixSharedMemory_ae5ce61e0ea14442951a118f4ab795b49}{Posix\+Shared\+Memory}}.
+
+\mbox{\Hypertarget{classSharedMemory_a9669b8e08e85f5e4e2e6316c7d33eadb}\label{classSharedMemory_a9669b8e08e85f5e4e2e6316c7d33eadb}} 
+\index{SharedMemory@{SharedMemory}!destroy@{destroy}}
+\index{destroy@{destroy}!SharedMemory@{SharedMemory}}
+\doxysubsubsection{\texorpdfstring{destroy()}{destroy()}}
+{\footnotesize\ttfamily virtual void Shared\+Memory\+::destroy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classPosixSharedMemory_a5ab4631fdcb59281cbef677f6bc97b27}{Posix\+Shared\+Memory}}.
+
+\mbox{\Hypertarget{classSharedMemory_a2946aa9d77d85dda3370c6a4192a9797}\label{classSharedMemory_a2946aa9d77d85dda3370c6a4192a9797}} 
+\index{SharedMemory@{SharedMemory}!detach@{detach}}
+\index{detach@{detach}!SharedMemory@{SharedMemory}}
+\doxysubsubsection{\texorpdfstring{detach()}{detach()}}
+{\footnotesize\ttfamily virtual void Shared\+Memory\+::detach (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classPosixSharedMemory_a949aede70f00a2ab5dbad49a13306076}{Posix\+Shared\+Memory}}.
+
+\mbox{\Hypertarget{classSharedMemory_a0bd506a66c8b3b5c4e213832b1e11c00}\label{classSharedMemory_a0bd506a66c8b3b5c4e213832b1e11c00}} 
+\index{SharedMemory@{SharedMemory}!empty@{empty}}
+\index{empty@{empty}!SharedMemory@{SharedMemory}}
+\doxysubsubsection{\texorpdfstring{empty()}{empty()}}
+{\footnotesize\ttfamily virtual bool Shared\+Memory\+::empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classPosixSharedMemory_a8eb6eaa42127ca7b4503f0b464f6ccfa}{Posix\+Shared\+Memory}}.
+
+\mbox{\Hypertarget{classSharedMemory_a9075b137dac6bce6d532c02486d4064f}\label{classSharedMemory_a9075b137dac6bce6d532c02486d4064f}} 
+\index{SharedMemory@{SharedMemory}!enqueue@{enqueue}}
+\index{enqueue@{enqueue}!SharedMemory@{SharedMemory}}
+\doxysubsubsection{\texorpdfstring{enqueue()}{enqueue()}}
+{\footnotesize\ttfamily virtual void Shared\+Memory\+::enqueue (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structSharedTask}{Shared\+Task}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classPosixSharedMemory_a9100d551e310cf905c8409cd2fb55754}{Posix\+Shared\+Memory}}.
+
+\mbox{\Hypertarget{classSharedMemory_ab31e7f56c9f42f51458bfbf3bd06bab4}\label{classSharedMemory_ab31e7f56c9f42f51458bfbf3bd06bab4}} 
+\index{SharedMemory@{SharedMemory}!name@{name}}
+\index{name@{name}!SharedMemory@{SharedMemory}}
+\doxysubsubsection{\texorpdfstring{name()}{name()}}
+{\footnotesize\ttfamily virtual const std\+::string\& Shared\+Memory\+::name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Implemented in \mbox{\hyperlink{classPosixSharedMemory_afd9fe87308327cd8a494676431d67ea0}{Posix\+Shared\+Memory}}.
+
+\mbox{\Hypertarget{classSharedMemory_a8765cb78485992b19f2a15877ef174cd}\label{classSharedMemory_a8765cb78485992b19f2a15877ef174cd}} 
+\index{SharedMemory@{SharedMemory}!size@{size}}
+\index{size@{size}!SharedMemory@{SharedMemory}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily virtual size\+\_\+t Shared\+Memory\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classPosixSharedMemory_a5e9f6d4f20b80a2fc3d32cf4e64a793d}{Posix\+Shared\+Memory}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Shared\+Memory/include/\+Shared\+Memory/\mbox{\hyperlink{SharedMemory_8hpp}{Shared\+Memory.\+hpp}}\end{DoxyCompactItemize}

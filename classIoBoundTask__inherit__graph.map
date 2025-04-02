@@ -1,0 +1,5 @@
+<map id="IoBoundTask" name="IoBoundTask">
+<area shape="rect" id="node1" title="Represents an I/O&#45;bound task." alt="" coords="5,155,109,181"/>
+<area shape="rect" id="node2" href="$classUnixTask.html" title="Represents a task in a Unix&#45;based system." alt="" coords="17,80,98,107"/>
+<area shape="rect" id="node3" href="$classGeneralTask.html" title="Abstract base class representing a generic task." alt="" coords="6,5,109,32"/>
+</map>
