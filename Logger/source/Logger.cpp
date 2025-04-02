@@ -15,11 +15,20 @@ std::string Logger::format_with_timestamp(const std::string &message)
     return oss.str();
 }
 
-FileLogger::FileLogger(const std::string &log_dir, const std::string &log_file_name)
+FileLogger::FileLogger(const std::string& log_dir, const std::string& log_file_name)
     : log_file_(create_log_file(log_dir, log_file_name)) {}
 
 void FileLogger::log_with_timestamp(const std::string &message)  
 {
     if (log_file_.is_open()) 
         log_file_ << format_with_timestamp(message) << "\n";
+}
+
+ErrorLogger::ErrorLogger(const std::string &error_log_dir, const std::string &error_log_file_name)
+                : error_log_file_(create_error_log_file(error_log_dir, error_log_file_name)) {}
+
+void ErrorLogger::log_with_timestamp(const std::string& message) 
+{
+    if (error_log_file_.is_open()) 
+        error_log_file_ << "[ERROR] " << message << '\n';
 }

@@ -11,3 +11,9 @@ add_subdirectory(Tests)
 add_subdirectory(Tasks)
 
 add_subdirectory(Logger)
+
+add_subdirectory(SharedMemory)
+
+add_subdirectory(PosixSharedMemory)
+
+add_subdirectory(SharedMemoryFactory)
