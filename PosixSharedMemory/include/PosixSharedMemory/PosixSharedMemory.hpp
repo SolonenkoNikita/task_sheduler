@@ -11,7 +11,7 @@
 #include <unistd.h>
 
 #define COUNT_TASKS 100
-#define ERROR_DIR = "error_log"
+#define ERROR_DIR "error_log"
 
 class PosixSharedMemory : public SharedMemory 
 {

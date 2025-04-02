@@ -17,3 +17,5 @@ add_subdirectory(SharedMemory)
 add_subdirectory(PosixSharedMemory)
 
 add_subdirectory(SharedMemoryFactory)
+
+add_subdirectory(TaskSerialize)
