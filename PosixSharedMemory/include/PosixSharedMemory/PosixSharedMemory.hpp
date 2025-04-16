@@ -3,14 +3,17 @@
 #include <SharedMemory/SharedMemory.hpp>
 #include <Logger/Logger.hpp>
 
+#include <atomic>
 #include <cstring>
 #include <fcntl.h>
 #include <mutex>
+#include <semaphore.h>
 #include <stdexcept>
 #include <sys/mman.h>
 #include <unistd.h>
 
 #define COUNT_TASKS 100
+#define THROW_VALUE 10000
 #define ERROR_DIR "error_log"
 
 class PosixSharedMemory : public SharedMemory 
@@ -22,14 +25,14 @@ public:
     #pragma pack(push, 1)
     struct SharedMemoryLayout 
     {
-        size_t front_;
-        size_t rear_;
-        size_t count_;
-        bool scheduler_running_;
-        SharedTask tasks_[COUNT_TASKS]; 
+        std::atomic<size_t> front_;
+        std::atomic<size_t> rear_;
+        std::atomic<size_t> count_;
+        std::atomic<bool> scheduler_running_;
+        SharedTask tasks_[1]; //flexible value
 
-        size_t total_enqueued_;
-        size_t total_dequeued_;
+        std::atomic<size_t> total_enqueued_;
+        std::atomic<size_t> total_dequeued_;
     };
     #pragma pack(pop)
 
@@ -44,7 +47,18 @@ public:
     
     [[nodiscard]] inline size_t size() const override 
     { 
-        return data_ ? data_->count_ : 0; 
+       return data_ ? data_->count_.load(std::memory_order_relaxed) : 0;
+    }
+
+    inline void set_scheduler_running(bool running) 
+    {
+        if (data_) 
+            data_->scheduler_running_.store(running, std::memory_order_release);
+    }
+
+    [[nodiscard]] inline bool is_scheduler_running() const 
+    {
+        return data_ && data_->scheduler_running_.load(std::memory_order_acquire);
     }
 
     [[nodiscard]] inline bool empty() const override 
@@ -65,12 +79,16 @@ public:
 private:
     void cleanup();
     void validate() const;
+    void recover_queue();
 
     std::string name_;
     size_t capacity_;
     int fd_;
     SharedMemoryLayout* data_;
-    mutable std::mutex mutex_;
+    
+    sem_t* enqueue_sem_;
+    sem_t* dequeue_sem_;
+    sem_t* mutex_sem_;
 
     std::shared_ptr<Logger> logger_;
 };

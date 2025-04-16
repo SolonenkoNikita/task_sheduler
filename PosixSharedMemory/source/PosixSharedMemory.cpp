@@ -1,8 +1,11 @@
 #include "PosixSharedMemory/PosixSharedMemory.hpp"
 
 PosixSharedMemory::PosixSharedMemory(const std::string& name, size_t capacity)
-        : name_(name), capacity_(capacity), fd_(-1), data_(nullptr) 
+        : name_(name), capacity_(capacity), fd_(-1), data_(nullptr),
+        enqueue_sem_(SEM_FAILED), dequeue_sem_(SEM_FAILED), mutex_sem_(SEM_FAILED)
     {
+        if(capacity == 0 || capacity > THROW_VALUE)
+            throw std::invalid_argument("Invalid value of capacity");
         logger_ = std::make_shared<ErrorLogger>(LOGS_DIR, ERROR_DIR);
     }
 
@@ -13,7 +16,7 @@ PosixSharedMemory::~PosixSharedMemory()
 
 void PosixSharedMemory::create() 
 {
-    std::lock_guard<std::mutex> lock(mutex_);
+    size_t total_size = sizeof(SharedMemoryLayout) + (capacity_ - 1) * sizeof(SharedTask);
 
     fd_ = shm_open(name_.c_str(), O_CREAT | O_RDWR | O_EXCL, 0666);
     if (fd_ == -1) 
@@ -26,7 +29,20 @@ void PosixSharedMemory::create()
     }
 
     attach();
-    memset(data_, 0, sizeof(SharedMemoryLayout));
+
+    data_->front_.store(0);
+    data_->rear_.store(0);
+    data_->count_.store(0);
+    data_->scheduler_running_.store(false);
+    data_->total_enqueued_.store(0);
+    data_->total_dequeued_.store(0);
+
+    enqueue_sem_ = sem_open(std::string("/" + name_ + "_enq").c_str(), 
+            O_CREAT | O_EXCL, 0666, capacity_);
+    dequeue_sem_ = sem_open(std::string("/" + name_ + "_deq").c_str(), 
+            O_CREAT | O_EXCL,  0666, capacity_);
+    mutex_sem_ = sem_open(std::string("/" + name_ + "_mut").c_str(),
+            O_CREAT | O_EXCL, 0666, capacity_);
 }
 
 void PosixSharedMemory::attach() 
@@ -69,16 +85,22 @@ void PosixSharedMemory::destroy()
 
 void PosixSharedMemory::enqueue(const SharedTask& task) 
 {
-    std::lock_guard<std::mutex> lock(mutex_);
-    validate();
+    if (sem_wait(enqueue_sem_) == -1) 
+        throw std::runtime_error("Enqueue semaphore wait failed");
+    if (sem_wait(mutex_sem_) == -1) 
+    {
+        sem_post(enqueue_sem_);
+        throw std::runtime_error("Mutex semaphore wait failed");
+    }
 
-    if (data_->count_ >= capacity_) 
-        throw std::runtime_error("Queue is full");
+    size_t rear = data_->rear_.load(std::memory_order_relaxed);
+    data_->tasks_[rear] = task;
+    data_->rear_.store((rear + 1) % capacity_, std::memory_order_relaxed);
+    data_->count_.fetch_add(1, std::memory_order_relaxed);
+    data_->total_enqueued_.fetch_add(1, std::memory_order_relaxed);
 
-    data_->tasks_[data_->rear_] = task;
-    data_->rear_ = (data_->rear_ + 1) % capacity_;
-    ++data_->count_;
-    ++data_->total_enqueued_;
+    sem_post(mutex_sem_);
+    sem_post(dequeue_sem_);
 }
 
 SharedTask PosixSharedMemory::dequeue() 
