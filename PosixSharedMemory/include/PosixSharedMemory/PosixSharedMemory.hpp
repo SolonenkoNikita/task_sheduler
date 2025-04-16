@@ -79,7 +79,6 @@ public:
 private:
     void cleanup();
     void validate() const;
-    void recover_queue();
 
     std::string name_;
     size_t capacity_;
