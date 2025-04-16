@@ -111,7 +111,7 @@ TEST_F(PosixSharedMemoryTest, MultithreadedAccess)
     EXPECT_TRUE(shm.empty());
 }
 
-/*TEST_F(PosixSharedMemoryTest, EnqueueDequeueSingleThread) 
+TEST_F(PosixSharedMemoryTest, EnqueueDequeueSingleThread) 
 {
     PosixSharedMemory shm("/test_shm", 5);
     shm.create();
@@ -124,17 +124,28 @@ TEST_F(PosixSharedMemoryTest, MultithreadedAccess)
     EXPECT_EQ(shm.size(), 1);
     EXPECT_FALSE(shm.empty());
 
-    // Добавляем вторую задачу
     EXPECT_NO_THROW(shm.enqueue(task2));
     EXPECT_EQ(shm.size(), 2);
 
-    // Извлекаем первую задачу
     auto dequeued = shm.dequeue();
     EXPECT_EQ(dequeued.id_, 1);
     EXPECT_EQ(shm.size(), 1);
 
-    // Извлекаем вторую задачу
     dequeued = shm.dequeue();
     EXPECT_EQ(dequeued.id_, 2);
     EXPECT_TRUE(shm.empty());
-}*/
+}
+
+TEST_F(PosixSharedMemoryTest, SchedulerFlag) 
+{
+    PosixSharedMemory shm("/test_shm");
+    shm.create();
+
+    EXPECT_FALSE(shm.is_scheduler_running());
+    
+    shm.set_scheduler_running(true);
+    EXPECT_TRUE(shm.is_scheduler_running());
+    
+    shm.set_scheduler_running(false);
+    EXPECT_FALSE(shm.is_scheduler_running());
+}

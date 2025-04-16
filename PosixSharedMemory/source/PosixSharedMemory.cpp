@@ -12,7 +12,8 @@ PosixSharedMemory::PosixSharedMemory(const std::string& name, size_t capacity)
 {
     if (capacity == 0 || capacity > THROW_VALUE)
         throw std::invalid_argument("Invalid value of capacity");
-    logger_ = std::make_shared<ErrorLogger>(LOGS_DIR, ERROR_DIR);
+    logger_error_ = std::make_shared<ErrorLogger>(LOGS_DIR, ERROR_DIR);
+    logger_state_ = std::make_shared<FileLogger>(LOGS_DIR, STATE_DIR);
 }
 
 PosixSharedMemory::~PosixSharedMemory() 
@@ -113,7 +114,7 @@ void PosixSharedMemory::enqueue(const SharedTask& task)
     data_->count_.fetch_add(1, std::memory_order_relaxed);
     data_->total_enqueued_.fetch_add(1, std::memory_order_relaxed);
 
-    logger_->log("Enqueued task with id: " + std::to_string(task.id_));
+    logger_state_->log("Enqueued task with id: " + std::to_string(task.id_));
 
     sem_post(mutex_sem_);
     sem_post(dequeue_sem_);
@@ -144,7 +145,7 @@ SharedTask PosixSharedMemory::dequeue()
     data_->count_.fetch_sub(1, std::memory_order_relaxed);
     data_->total_dequeued_.fetch_add(1, std::memory_order_relaxed);
 
-    logger_->log("Dequeued task with id: " + std::to_string(task.id_));
+    logger_state_->log("Dequeued task with id: " + std::to_string(task.id_));
 
     sem_post(mutex_sem_);
     sem_post(enqueue_sem_);
@@ -160,11 +161,11 @@ void PosixSharedMemory::cleanup()
     } 
     catch (const std::exception& e) 
     {
-        logger_->log("Failed to clean up shared memory: " + std::string(e.what()));
+        logger_error_->log("Failed to clean up shared memory: " + std::string(e.what()));
     }
     catch (...) 
     {
-        logger_->log("Unknown exception occurred during cleanup.");
+        logger_error_->log("Unknown exception occurred during cleanup.");
     }
 }
 
