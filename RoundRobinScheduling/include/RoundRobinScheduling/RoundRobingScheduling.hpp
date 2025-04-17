@@ -46,7 +46,7 @@ public:
      * 
      * @param task A shared pointer to the GeneralTask object (unused in this implementation).
      */
-    void update_task_priority(std::shared_ptr<GeneralTask>&) override {}
+    void update_task_priority(std::shared_ptr<GeneralTask>) override {}
 
     /**
      * @brief Returns the name of the scheduling algorithm.

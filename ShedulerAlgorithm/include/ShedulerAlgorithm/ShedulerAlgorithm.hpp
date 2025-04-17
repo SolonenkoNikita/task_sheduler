@@ -19,7 +19,7 @@ public:
      * @brief Updates task priorities if needed
      * @param task Task to update
      */
-    virtual void update_task_priority(std::shared_ptr<GeneralTask>&) = 0;
+    virtual void update_task_priority(std::shared_ptr<GeneralTask>) = 0;
     
     /**
      * @brief Returns algorithm name

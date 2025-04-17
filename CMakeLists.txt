@@ -20,10 +20,14 @@ add_subdirectory(SharedMemoryFactory)
 
 add_subdirectory(TaskSerialize)
 
-add_subdirectory(Sheduler)
-
 add_subdirectory(ShedulerAlgorithm)
 
 add_subdirectory(RoundRobinScheduling)
 
 add_subdirectory(PriorityScheduling)
+
+add_subdirectory(TaskQueueManager)
+
+add_subdirectory(TaskProcessor)
+
+add_subdirectory(Sheduler)

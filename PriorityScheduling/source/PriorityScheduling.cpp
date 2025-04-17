@@ -20,7 +20,7 @@ size_t PriorityScheduling::select_next_task(const std::vector<std::shared_ptr<Ge
     return selected;
 }
 
-void PriorityScheduling::update_task_priority(std::shared_ptr<GeneralTask>& task)
+void PriorityScheduling::update_task_priority(std::shared_ptr<GeneralTask> task)
 {
     task->adjust_dynamic_priority();
 }

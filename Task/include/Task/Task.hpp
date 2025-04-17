@@ -71,8 +71,7 @@ public:
     /**
      * @brief Retrieves the task's arrival time.
      *
-     * @return std::chrono::steady_clock::time_point The time when the task
-     * arrived.
+     * @return std::chrono::steady_clock::time_point The time when the task arrived.
      */
     virtual std::chrono::steady_clock::time_point get_arrival_time() const noexcept = 0;
 
@@ -100,6 +99,8 @@ public:
      * @param value The value to set for the attribute.
      */
     virtual void set_attribute(const std::string&, const std::any&) = 0;
+
+    virtual int get_id() const noexcept = 0;
 
     /**
      * @brief Virtual destructor for proper cleanup of derived classes.
@@ -140,7 +141,7 @@ public:
      *
      * @return int The task's ID.
      */
-    [[nodiscard]] inline int get_id() const noexcept
+    [[nodiscard]] inline int get_id() const noexcept override
     {
         return id_;
     }
