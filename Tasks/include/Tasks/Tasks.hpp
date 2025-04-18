@@ -35,7 +35,12 @@ public:
      */
     bool execute(std::chrono::milliseconds) override;
 
-private:
+    std::chrono::milliseconds get_total_time() const noexcept override
+    {
+        return total_work_;
+    }
+
+  private:
     std::chrono::milliseconds total_work_;
     std::chrono::milliseconds remaining_work_;
 };

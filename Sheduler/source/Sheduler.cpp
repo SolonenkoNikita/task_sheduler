@@ -2,10 +2,14 @@
 
 void Scheduler::start() 
 {
+    logger_->log("Starting scheduler...");
     shm_->set_scheduler_running(true);
     running_ = true;
+    logger_->log("Starting task processor...");
 
     processor_->start();
+
+    logger_->log("Starting scheduler thread...");
     scheduler_thread_ = std::thread(&Scheduler::schedule, this);
 }
 

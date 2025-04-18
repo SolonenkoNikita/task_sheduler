@@ -8,7 +8,7 @@
 
 PosixSharedMemory::PosixSharedMemory(const std::string& name, size_t capacity)
     : name_(name), capacity_(capacity), fd_(-1), data_(nullptr),
-      enqueue_sem_(SEM_FAILED), dequeue_sem_(SEM_FAILED), mutex_sem_(SEM_FAILED)
+    enqueue_sem_(SEM_FAILED), dequeue_sem_(SEM_FAILED), mutex_sem_(SEM_FAILED)
 {
     if (capacity == 0 || capacity > THROW_VALUE)
         throw std::invalid_argument("Invalid value of capacity");
@@ -28,7 +28,7 @@ void PosixSharedMemory::create()
     sem_unlink(std::string("/" + name_ + "_enq").c_str());
     sem_unlink(std::string("/" + name_ + "_deq").c_str());
     sem_unlink(std::string("/" + name_ + "_mut").c_str());
-    
+
     shm_unlink(name_.c_str());
     fd_ = shm_open(name_.c_str(), O_CREAT | O_RDWR | O_EXCL, 0666);
     if (fd_ == -1) 
@@ -94,9 +94,12 @@ void PosixSharedMemory::destroy()
         fd_ = -1;
     }
 
-    if (enqueue_sem_ != SEM_FAILED) sem_close(enqueue_sem_);
-    if (dequeue_sem_ != SEM_FAILED) sem_close(dequeue_sem_);
-    if (mutex_sem_ != SEM_FAILED) sem_close(mutex_sem_);
+    if (enqueue_sem_ != SEM_FAILED) 
+        sem_close(enqueue_sem_);
+    if (dequeue_sem_ != SEM_FAILED) 
+        sem_close(dequeue_sem_);
+    if (mutex_sem_ != SEM_FAILED) 
+        sem_close(mutex_sem_);
 
     sem_unlink(std::string("/" + name_ + "_enq").c_str());
     sem_unlink(std::string("/" + name_ + "_deq").c_str());

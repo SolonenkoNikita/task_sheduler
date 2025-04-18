@@ -24,21 +24,27 @@ void TaskProcessor::process_tasks()
     {
         try 
         {
-        if (queue_manager_->task_count() > 0) 
-        {
-            auto task = queue_manager_->get_next_task();
-
-            logger_->log("Processing task: " + task->get_description());
-
-            bool completed = task->execute(time_quantum_);
-
-            if (!completed)
-                queue_manager_->add_task(task);
+            if (queue_manager_->task_count() > 0) 
+            {
+                auto task = queue_manager_->get_next_task();
+                logger_->log("Processing task: " + task->get_description());
+                if(task->get_total_time().count() < time_quantum_.count())
+                {
+                    task->execute(task->get_total_time());
+                    logger_->log("Task completed: " + task->get_description());
+                    continue;
+                }
+                else
+                {
+                    bool completed = task->execute(time_quantum_);
+                    if (!completed && running_)
+                        queue_manager_->add_task(task);
+                    else
+                        logger_->log("Task completed: " + task->get_description());
+                }
+            } 
             else 
-                logger_->log("Task completed: " + task->get_description());
-        } 
-        else 
-            std::this_thread::sleep_for(std::chrono::milliseconds(100));
+                std::this_thread::sleep_for(std::chrono::milliseconds(100));
         } 
         catch (const std::exception &e) 
         {

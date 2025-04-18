@@ -21,7 +21,8 @@ FetchContent_MakeAvailable(googletest)
 add_executable (Tests   source/main.cpp
                         source/TestCaseTask.cpp
                         source/TestSharedMemory.cpp
-                        source/TestQueueManager.cpp)
+                        source/TestQueueManager.cpp
+                        source/TestTaskProcessor.cpp)
 
 target_link_libraries(Tests gtest
                             gtest_main
@@ -31,6 +32,7 @@ target_link_libraries(Tests gtest
                             TaskQueueManager
                             RoundRobinScheduling
                             PriorityScheduling
+                            TaskProcessor
                             GTest::gmock
                             pthread
 )

@@ -6,6 +6,13 @@
 
 #define MAX_PATH 256
 
+enum class TaskType 
+{ 
+    UNIX_TASK, 
+    CPU_INTENSIVE_TASK, 
+    IO_BOUND_TASK 
+};
+
 /**
  * @struct SharedTask
  * @brief Represents a task stored in shared memory.
@@ -14,11 +21,13 @@
  * It includes metadata such as task ID, priority, description, completion
  * status, and remaining execution time.
  */
+
 struct SharedTask 
 {
     int id_;
     int priority_;
     char description_[MAX_PATH];
+    TaskType type_;
     bool completed_;
     int remaining_time_ms_;
 };

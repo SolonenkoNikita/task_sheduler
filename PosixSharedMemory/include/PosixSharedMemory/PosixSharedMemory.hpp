@@ -128,7 +128,7 @@ public:
      */
     [[nodiscard]] inline size_t size() const override 
     { 
-       return data_ ? data_->count_.load(std::memory_order_relaxed) : 0;
+       return data_->count_.load(std::memory_order_relaxed);
     }
 
     /**

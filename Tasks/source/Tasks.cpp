@@ -5,7 +5,7 @@ CpuIntensiveTask::CpuIntensiveTask(int id, std::chrono::milliseconds duration): 
 {
     is_io_bound_ = false;
 }
-
+ 
 bool CpuIntensiveTask::execute(std::chrono::milliseconds quantum) 
 {
     set_state(TaskState::RUNNING);
@@ -36,6 +36,7 @@ bool CpuIntensiveTask::execute(std::chrono::milliseconds quantum)
     set_state(completed ? TaskState::COMPLETED : TaskState::READY);
     return completed;
 }
+    
 
 IoBoundTask::IoBoundTask(int id, const std::string &file_path, int operations): UnixTask(id, "I/O-Bound Task: " + file_path), 
                             file_path_(file_path), operations_remaining_(operations) 

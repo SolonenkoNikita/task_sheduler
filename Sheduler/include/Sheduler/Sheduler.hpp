@@ -5,6 +5,8 @@
 #include <TaskQueueManager/TaskQueueManager.hpp>
 #include <RoundRobinScheduling/RoundRobingScheduling.hpp>
 
+#define STATE_SCHEDULER "state_scheduler"
+
 class Scheduler final
 {
 public:
@@ -12,9 +14,7 @@ public:
         queue_manager_(std::make_shared<TaskQueueManager>(shm)),
         processor_(std::make_shared<TaskProcessor>(queue_manager_, std::chrono::milliseconds(100))),
         current_algorithm_(std::make_unique<RoundRobinScheduling>()),
-        shm_(shm),
-        running_(false),
-        logger_(std::make_shared<ErrorLogger>(LOGS_DIR, STATE_DIR)){}
+        shm_(shm), running_(false), logger_(std::make_shared<ErrorLogger>(LOGS_DIR, STATE_SCHEDULER)){}
     
     void start();
     
@@ -47,6 +47,7 @@ private:
             } 
             catch (const std::exception& e) 
             {
+                logger_->log(std::string(e.what()));
                 // Логирование ошибки
             }
         }

@@ -40,9 +40,9 @@ TEST_F(PosixSharedMemoryTest, CircularBufferBehavior)
     shm.create();
 
     SharedTask tasks[3] = {
-        {1, 1, "Task1", false, 100},
-        {2, 2, "Task2", false, 200},
-        {3, 3, "Task3", false, 300}
+        {1, 1, "Task1", TaskType::UNIX_TASK, false, 100},
+        {2, 2, "Task2", TaskType::UNIX_TASK, false, 200},
+        {3, 3, "Task3", TaskType::UNIX_TASK,false, 300}
     };
 
     for (auto& task : tasks) 
@@ -53,7 +53,7 @@ TEST_F(PosixSharedMemoryTest, CircularBufferBehavior)
     shm.dequeue();
     EXPECT_EQ(shm.size(), 1);
 
-    SharedTask task4{4, 4, "Task4", false, 400};
+    SharedTask task4{4, 4, "Task4", TaskType::UNIX_TASK, false, 400};
     shm.enqueue(task4);
     EXPECT_EQ(shm.size(), 2);
 
@@ -77,7 +77,7 @@ TEST_F(PosixSharedMemoryTest, MultithreadedAccess)
         {
             for (int j = 0; j < tasks_per_thread; ++j) 
             {
-                SharedTask task{i * 100 + j, j, "Task", false, 100};
+                SharedTask task{i * 100 + j, j, "Task", TaskType::UNIX_TASK, false, 100};
                 shm.enqueue(task);
             }
         });
@@ -116,9 +116,8 @@ TEST_F(PosixSharedMemoryTest, EnqueueDequeueSingleThread)
     PosixSharedMemory shm("/test_shm", 5);
     shm.create();
 
-    SharedTask task1{1, 10, "Task1", false, 100};
-    SharedTask task2{2, 5, "Task2", false, 200};
-
+    SharedTask task1{1, 10, "Task1", TaskType::UNIX_TASK, false, 100};
+    SharedTask task2{2, 5, "Task2", TaskType::UNIX_TASK, false, 200};
     
     EXPECT_NO_THROW(shm.enqueue(task1));
     EXPECT_EQ(shm.size(), 1);

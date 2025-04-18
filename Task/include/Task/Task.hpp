@@ -100,6 +100,13 @@ public:
      */
     virtual void set_attribute(const std::string&, const std::any&) = 0;
 
+    /**
+     * @brief Retrieves the total time required for the task to complete.
+     *
+     * @return std::chrono::milliseconds The total duration of the task.
+     */
+    virtual std::chrono::milliseconds get_total_time() const noexcept = 0;
+
     virtual int get_id() const noexcept = 0;
 
     /**
@@ -299,6 +306,8 @@ protected:
      * @return bool True if the process has terminated, false otherwise.
      */
     [[nodiscard]] bool check_process_status() const noexcept;
+
+    [[maybe_unused]] inline std::chrono::milliseconds get_total_time() const noexcept override {}
 
 protected:
     const int id_;

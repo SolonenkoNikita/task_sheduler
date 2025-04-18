@@ -5,7 +5,7 @@ void TaskQueueManager::reorder_tasks(std::shared_ptr<SchedulingAlgorithm> algori
     std::vector<std::shared_ptr<GeneralTask>> tasks;
         
     while (!shared_memory_->empty()) 
-        tasks.push_back(get_next_task());
+        tasks.emplace_back(get_next_task());
         
     for (auto& task : tasks) 
             algorithm->update_task_priority(task);
@@ -39,19 +39,42 @@ void TaskQueueManager::convert_to_shared_task(std::shared_ptr<GeneralTask> src, 
         dst.remaining_time_ms_ = 0;
         return;
     }
-    
+    if (dynamic_cast<CpuIntensiveTask*>(src.get())) 
+        dst.type_ = TaskType::CPU_INTENSIVE_TASK;
+    else if (dynamic_cast<IoBoundTask*>(src.get())) 
+        dst.type_ = TaskType::IO_BOUND_TASK;
+    else 
+        dst.type_ = TaskType::UNIX_TASK;
     auto arrival_time = src->get_arrival_time();
     auto now = std::chrono::steady_clock::now();
     auto elapsed_time_ms = std::chrono::duration_cast<std::chrono::milliseconds>(now - arrival_time).count();
-    dst.remaining_time_ms_ = std::max(0, static_cast<int>(elapsed_time_ms));
+    auto total_time_ms = src->get_total_time().count();
+    dst.remaining_time_ms_ = std::max(0, static_cast<int> (total_time_ms - elapsed_time_ms));
 }
 
 std::shared_ptr<GeneralTask> TaskQueueManager::convert_from_shared_task(const SharedTask& src) 
 {
-    //and this one
-    auto task = std::make_shared<UnixTask>(src.id_, src.description_);
+    std::shared_ptr<UnixTask> task;
+
+    switch (src.type_) 
+    {
+        case TaskType::CPU_INTENSIVE_TASK:
+            task = std::make_shared<CpuIntensiveTask>(src.id_, std::chrono::milliseconds(src.remaining_time_ms_));
+            break;
+
+        case TaskType::IO_BOUND_TASK:
+            task = std::make_shared<IoBoundTask>(src.id_, "output.txt", src.remaining_time_ms_);
+            break;
+
+        case TaskType::UNIX_TASK:
+        default:
+            task = std::make_shared<UnixTask>(src.id_, src.description_);
+            break;
+    }
+
     task->set_static_priority(src.priority_);
     if (src.completed_) 
         task->set_state(UnixTask::TaskState::COMPLETED);
+
     return task;
 }

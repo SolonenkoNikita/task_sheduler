@@ -3,6 +3,7 @@
 #include <Task/Task.hpp>
 #include <PosixSharedMemory/PosixSharedMemory.hpp>
 #include <ShedulerAlgorithm/ShedulerAlgorithm.hpp>
+#include <Tasks/Tasks.hpp>
 
 class TaskQueueManager final
 {
