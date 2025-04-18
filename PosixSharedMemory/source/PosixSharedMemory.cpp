@@ -25,6 +25,11 @@ void PosixSharedMemory::create()
 {
     size_t total_size = sizeof(SharedMemoryLayout) + (capacity_ - 1) * sizeof(SharedTask);
 
+    sem_unlink(std::string("/" + name_ + "_enq").c_str());
+    sem_unlink(std::string("/" + name_ + "_deq").c_str());
+    sem_unlink(std::string("/" + name_ + "_mut").c_str());
+    
+    shm_unlink(name_.c_str());
     fd_ = shm_open(name_.c_str(), O_CREAT | O_RDWR | O_EXCL, 0666);
     if (fd_ == -1) 
         throw std::runtime_error("Failed to create shared memory: " + std::string(strerror(errno)));

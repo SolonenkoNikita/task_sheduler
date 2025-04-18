@@ -34,7 +34,16 @@ void TaskQueueManager::convert_to_shared_task(std::shared_ptr<GeneralTask> src, 
     strncpy(dst.description_, src->get_description().c_str(),  sizeof(dst.description_) - 1);
     dst.description_[sizeof(dst.description_) - 1] = '\0';
     dst.completed_ = src->is_completed();
-    dst.remaining_time_ms_ = 0; //this !
+    if (dst.completed_) 
+    {
+        dst.remaining_time_ms_ = 0;
+        return;
+    }
+    
+    auto arrival_time = src->get_arrival_time();
+    auto now = std::chrono::steady_clock::now();
+    auto elapsed_time_ms = std::chrono::duration_cast<std::chrono::milliseconds>(now - arrival_time).count();
+    dst.remaining_time_ms_ = std::max(0, static_cast<int>(elapsed_time_ms));
 }
 
 std::shared_ptr<GeneralTask> TaskQueueManager::convert_from_shared_task(const SharedTask& src) 

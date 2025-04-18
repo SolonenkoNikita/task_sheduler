@@ -7,6 +7,9 @@
 class TaskQueueManager final
 {
 public:
+
+    explicit TaskQueueManager(PosixSharedMemory& shm) : shared_memory_(std::make_shared<PosixSharedMemory>(shm)) {}
+
     explicit TaskQueueManager(std::shared_ptr<PosixSharedMemory> shm): shared_memory_(shm) {}
     
     void add_task(std::shared_ptr<GeneralTask>);

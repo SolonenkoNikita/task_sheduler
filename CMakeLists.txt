@@ -16,8 +16,6 @@ add_subdirectory(SharedMemory)
 
 add_subdirectory(PosixSharedMemory)
 
-add_subdirectory(SharedMemoryFactory)
-
 add_subdirectory(TaskSerialize)
 
 add_subdirectory(ShedulerAlgorithm)
@@ -31,3 +29,5 @@ add_subdirectory(TaskQueueManager)
 add_subdirectory(TaskProcessor)
 
 add_subdirectory(Sheduler)
+
+add_subdirectory(Dialogue)
