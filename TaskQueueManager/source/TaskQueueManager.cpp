@@ -63,7 +63,7 @@ std::shared_ptr<GeneralTask> TaskQueueManager::convert_from_shared_task(const Sh
             break;
 
         case TaskType::IO_BOUND_TASK:
-            task = std::make_shared<IoBoundTask>(src.id_, "output.txt", src.remaining_time_ms_);
+            task = std::make_shared<IoBoundTask>(src.id_, "output.txt", src.remaining_time_ms_); //just a flag
             break;
 
         case TaskType::UNIX_TASK:

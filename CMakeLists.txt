@@ -16,8 +16,6 @@ add_subdirectory(SharedMemory)
 
 add_subdirectory(PosixSharedMemory)
 
-add_subdirectory(TaskSerialize)
-
 add_subdirectory(ShedulerAlgorithm)
 
 add_subdirectory(RoundRobinScheduling)
@@ -30,4 +28,10 @@ add_subdirectory(TaskProcessor)
 
 add_subdirectory(Sheduler)
 
-add_subdirectory(Dialogue)
+add_subdirectory(ClientDialogue)
+
+add_subdirectory(ServerDialogue)
+
+add_subdirectory(Client)
+
+add_subdirectory(Server)

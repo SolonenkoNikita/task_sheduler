@@ -22,7 +22,8 @@ add_executable (Tests   source/main.cpp
                         source/TestCaseTask.cpp
                         source/TestSharedMemory.cpp
                         source/TestQueueManager.cpp
-                        source/TestTaskProcessor.cpp)
+                        source/TestTaskProcessor.cpp
+                        source/TestScheduler.cpp)
 
 target_link_libraries(Tests gtest
                             gtest_main
@@ -33,6 +34,7 @@ target_link_libraries(Tests gtest
                             RoundRobinScheduling
                             PriorityScheduling
                             TaskProcessor
+                            Sheduler
                             GTest::gmock
                             pthread
 )
