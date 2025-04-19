@@ -19,6 +19,7 @@ void TaskQueueManager::add_task(std::shared_ptr<GeneralTask> task)
     SharedTask st;
     convert_to_shared_task(task, st);
     shared_memory_->enqueue(st);
+    shared_memory_->print();
 }
 
 std::shared_ptr<GeneralTask> TaskQueueManager::get_next_task() 

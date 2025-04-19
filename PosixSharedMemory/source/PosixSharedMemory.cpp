@@ -128,6 +128,47 @@ void PosixSharedMemory::enqueue(const SharedTask& task)
     sem_post(dequeue_sem_);
 }
 
+void PosixSharedMemory::print() 
+{
+    if (sem_wait(mutex_sem_) == -1) 
+        throw std::runtime_error("Mutex semaphore wait failed during print");
+
+    try 
+    {
+        validate();
+
+        size_t front = data_->front_.load(std::memory_order_relaxed);
+        size_t rear = data_->rear_.load(std::memory_order_relaxed);
+        size_t count = data_->count_.load(std::memory_order_relaxed);
+
+        if (count == 0) 
+            std::cout << "  [Empty]" << std::endl;
+        else 
+        {
+            size_t index = front;
+            for (size_t i = 0; i < count; ++i) 
+            {
+                const SharedTask& task = data_->tasks_[index];
+                std::cout << "  Task ID: " << task.id_
+                          << ", Priority: " << task.priority_
+                          << ", Description: " << task.description_
+                          << ", Completed: " << (task.completed_ ? "Yes" : "No")
+                          << ", Remaining Time: " << task.remaining_time_ms_ << " ms"
+                          << std::endl;
+                index = (index + 1) % capacity_;
+            }
+        }
+    } 
+    catch (const std::exception& e) 
+    {
+        logger_error_->log("Error during print: " + std::string(e.what()));
+        sem_post(mutex_sem_);
+        throw;
+    }
+    
+    sem_post(mutex_sem_);
+}
+
 SharedTask PosixSharedMemory::dequeue() 
 {
     if (sem_wait(dequeue_sem_) == -1)

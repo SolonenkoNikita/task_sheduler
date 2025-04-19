@@ -186,6 +186,8 @@ public:
         return capacity_; 
     }
 
+    void print();
+
 private:
 
     /**

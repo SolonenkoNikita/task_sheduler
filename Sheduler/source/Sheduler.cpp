@@ -38,3 +38,20 @@ void Scheduler::set_time_quantum(std::chrono::milliseconds quantum)
 {
     processor_->set_time_quantum(quantum);
 }
+
+void Scheduler::schedule() 
+{
+    while (running_) 
+    {
+        try 
+        {
+            queue_manager_->reorder_tasks(current_algorithm_);
+                
+            std::this_thread::sleep_for(std::chrono::milliseconds(500));
+        } 
+        catch (const std::exception& e) 
+        {
+            logger_->log(std::string(e.what()));
+        }
+    }
+}
