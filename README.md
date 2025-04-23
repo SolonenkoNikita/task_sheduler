@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project implements a **Task Scheduler** designed for Unix-based systems. It provides a robust and flexible framework for managing tasks in shared memory, with support for logging and error handling. The scheduler is implemented using modern C++ standards (C++20) to ensure high performance and maintainability.
+This project implements a **Task Scheduler** designed for Unix-based systems. It provides a robust and flexible framework for managing tasks in shared memory, with support for logging and error handling. The scheduler is implemented using modern C++ standards (C++20) to ensure high performance and maintainability. It works on the client-server principle (for adding tasks), since this is a model - only mathematical tasks. The client sends a command request to the server, the server processes the command and sends it to the scheduler.
 
 ## Features
 
